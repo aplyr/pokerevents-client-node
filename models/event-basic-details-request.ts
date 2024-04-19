@@ -13,72 +13,77 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { StateType } from './state-type';
 
 /**
  * 
  * @export
- * @interface FestivalEntity
+ * @interface EventBasicDetailsRequest
  */
-export interface FestivalEntity {
+export interface EventBasicDetailsRequest {
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
-    'id'?: string;
+    'festivalId'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
-    'seasonId'?: string;
+    'venueId'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'venueId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
     'name'?: string | null;
     /**
      * 
+     * @type {number}
+     * @memberof EventBasicDetailsRequest
+     */
+    'priority'?: number;
+    /**
+     * 
+     * @type {StateType}
+     * @memberof EventBasicDetailsRequest
+     */
+    'state'?: StateType;
+    /**
+     * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
+     */
+    'summary'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventBasicDetailsRequest
      */
     'fromDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
     'toDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'websiteUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventBasicDetailsRequest
      */
     'thmId'?: string | null;
 }
+
+
 

@@ -17,50 +17,62 @@
 /**
  * 
  * @export
- * @interface TourEntity
+ * @interface FestivalDetailsDto
  */
-export interface TourEntity {
+export interface FestivalDetailsDto {
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
-    'abbreviation'?: string | null;
+    'fromDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
-    'logoUrl'?: string | null;
+    'toDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
+     */
+    'countryIso'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FestivalDetailsDto
      */
     'websiteUrl'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof FestivalDetailsDto
      */
     'thmId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof FestivalDetailsDto
+     */
+    'seasonName'?: string | null;
 }
 

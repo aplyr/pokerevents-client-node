@@ -37,7 +37,7 @@ export interface SectionEntity {
      * @type {string}
      * @memberof SectionEntity
      */
-    'updateId'?: string;
+    'liveUpdateId'?: string;
     /**
      * 
      * @type {SectionType}
@@ -61,7 +61,7 @@ export interface SectionEntity {
      * @type {LiveUpdateEntity}
      * @memberof SectionEntity
      */
-    'update'?: LiveUpdateEntity;
+    'liveUpdate'?: LiveUpdateEntity;
 }
 
 

@@ -17,50 +17,40 @@
 /**
  * 
  * @export
- * @interface TourEntity
+ * @interface ProblemDetails
  */
-export interface TourEntity {
+export interface ProblemDetails {
+    [key: string]: any;
+
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof ProblemDetails
      */
-    'id'?: string;
+    'type'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof ProblemDetails
      */
-    'name'?: string | null;
+    'title'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ProblemDetails
+     */
+    'status'?: number | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof ProblemDetails
      */
-    'description'?: string | null;
+    'detail'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof ProblemDetails
      */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'logoUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'websiteUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'thmId'?: string | null;
+    'instance'?: string | null;
 }
 

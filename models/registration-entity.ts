@@ -15,18 +15,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ChipCountUpdateEntity } from './chip-count-update-entity';
-// May contain unused imports in some cases
-// @ts-ignore
-import { EventEntity } from './event-entity';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PayoutEntity } from './payout-entity';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PlayerEntity } from './player-entity';
-// May contain unused imports in some cases
-// @ts-ignore
 import { RegistrationStatisticsDto } from './registration-statistics-dto';
 
 /**
@@ -83,29 +71,5 @@ export interface RegistrationEntity {
      * @memberof RegistrationEntity
      */
     'statistics'?: RegistrationStatisticsDto;
-    /**
-     * 
-     * @type {EventEntity}
-     * @memberof RegistrationEntity
-     */
-    'event'?: EventEntity;
-    /**
-     * 
-     * @type {PlayerEntity}
-     * @memberof RegistrationEntity
-     */
-    'player'?: PlayerEntity;
-    /**
-     * 
-     * @type {PayoutEntity}
-     * @memberof RegistrationEntity
-     */
-    'payout'?: PayoutEntity;
-    /**
-     * 
-     * @type {Array<ChipCountUpdateEntity>}
-     * @memberof RegistrationEntity
-     */
-    'chipCountUpdates'?: Array<ChipCountUpdateEntity> | null;
 }
 

@@ -49,6 +49,12 @@ export interface EventSummaryDto {
     'state'?: StateType;
     /**
      * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
+    'priority'?: number;
+    /**
+     * 
      * @type {string}
      * @memberof EventSummaryDto
      */
@@ -95,6 +101,18 @@ export interface EventSummaryDto {
      * @memberof EventSummaryDto
      */
     'venueThmId'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
+    'daysCount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
+    'liveReportingsCount'?: number;
 }
 
 

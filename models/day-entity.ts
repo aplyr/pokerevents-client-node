@@ -13,9 +13,6 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { EventEntity } from './event-entity';
 
 /**
  * 
@@ -47,11 +44,5 @@ export interface DayEntity {
      * @memberof DayEntity
      */
     'date'?: string;
-    /**
-     * 
-     * @type {EventEntity}
-     * @memberof DayEntity
-     */
-    'event'?: EventEntity;
 }
 

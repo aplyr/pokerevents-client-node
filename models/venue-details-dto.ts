@@ -17,85 +17,85 @@
 /**
  * 
  * @export
- * @interface VenueEntity
+ * @interface VenueDetailsDto
  */
-export interface VenueEntity {
+export interface VenueDetailsDto {
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'summary'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'countryIso'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'city'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'address'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'phone'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'email'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'websiteUrl'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'logoUrl'?: string | null;
     /**
      * 
      * @type {Array<string>}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'photos'?: Array<string> | null;
     /**
      * 
      * @type {string}
-     * @memberof VenueEntity
+     * @memberof VenueDetailsDto
      */
     'thmId'?: string | null;
 }

@@ -22,30 +22,59 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { EventBasicDetailsRequest } from '../models';
-// @ts-ignore
-import { EventDetailsDto } from '../models';
-// @ts-ignore
-import { EventSummaryDto } from '../models';
-// @ts-ignore
-import { ProblemDetails } from '../models';
+import { RegistrationEntity } from '../models';
 /**
- * EventsApi - axios parameter creator
+ * RegistrationEntityApi - axios parameter creator
  * @export
  */
-export const EventsApiAxiosParamCreator = function (configuration?: Configuration) {
+export const RegistrationEntityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {string} eventId 
+         * @param {RegistrationEntity} registrationEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdDelete: async (eventId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'eventId' is not null or undefined
-            assertParamExists('apiEventsEventIdDelete', 'eventId', eventId)
-            const localVarPath = `/api/Events/{eventId}`
-                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+        createRegistrationEntity: async (registrationEntity: RegistrationEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'registrationEntity' is not null or undefined
+            assertParamExists('createRegistrationEntity', 'registrationEntity', registrationEntity)
+            const localVarPath = `/api/RegistrationEntity`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(registrationEntity, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteRegistrationEntity: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteRegistrationEntity', 'id', id)
+            const localVarPath = `/api/RegistrationEntity/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -70,15 +99,11 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
-         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdGet: async (eventId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'eventId' is not null or undefined
-            assertParamExists('apiEventsEventIdGet', 'eventId', eventId)
-            const localVarPath = `/api/Events/{eventId}`
-                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+        getAllRegistrationEntities: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/RegistrationEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -103,16 +128,51 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
-         * @param {string} eventId 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdPut: async (eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'eventId' is not null or undefined
-            assertParamExists('apiEventsEventIdPut', 'eventId', eventId)
-            const localVarPath = `/api/Events/{eventId}`
-                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+        getRegistrationEntityById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getRegistrationEntityById', 'id', id)
+            const localVarPath = `/api/RegistrationEntity/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {RegistrationEntity} registrationEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateRegistrationEntity: async (id: string, registrationEntity: RegistrationEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateRegistrationEntity', 'id', id)
+            // verify required parameter 'registrationEntity' is not null or undefined
+            assertParamExists('updateRegistrationEntity', 'registrationEntity', registrationEntity)
+            const localVarPath = `/api/RegistrationEntity/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -131,79 +191,7 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(eventBasicDetailsRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {number} [pageSize] 
-         * @param {number} [page] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiEventsGet: async (pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Events`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['pageSize'] = pageSize;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiEventsPost: async (eventBasicDetailsRequest?: EventBasicDetailsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Events`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(eventBasicDetailsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(registrationEntity, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -214,196 +202,190 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
 };
 
 /**
- * EventsApi - functional programming interface
+ * RegistrationEntityApi - functional programming interface
  * @export
  */
-export const EventsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = EventsApiAxiosParamCreator(configuration)
+export const RegistrationEntityApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RegistrationEntityApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {string} eventId 
+         * @param {RegistrationEntity} registrationEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsEventIdDelete(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdDelete(eventId, options);
+        async createRegistrationEntity(registrationEntity: RegistrationEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RegistrationEntity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRegistrationEntity(registrationEntity, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdDelete']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.createRegistrationEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {string} eventId 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsEventIdGet(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventDetailsDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdGet(eventId, options);
+        async deleteRegistrationEntity(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRegistrationEntity(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.deleteRegistrationEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {string} eventId 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsEventIdPut(eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdPut(eventId, eventBasicDetailsRequest, options);
+        async getAllRegistrationEntities(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RegistrationEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllRegistrationEntities(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdPut']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.getAllRegistrationEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {number} [pageSize] 
-         * @param {number} [page] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsGet(pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EventSummaryDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsGet(pageSize, page, options);
+        async getRegistrationEntityById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RegistrationEntity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRegistrationEntityById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.getRegistrationEntityById']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
+         * @param {string} id 
+         * @param {RegistrationEntity} registrationEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsPost(eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventDetailsDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsPost(eventBasicDetailsRequest, options);
+        async updateRegistrationEntity(id: string, registrationEntity: RegistrationEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRegistrationEntity(id, registrationEntity, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.updateRegistrationEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * EventsApi - factory interface
+ * RegistrationEntityApi - factory interface
  * @export
  */
-export const EventsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = EventsApiFp(configuration)
+export const RegistrationEntityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RegistrationEntityApiFp(configuration)
     return {
         /**
          * 
-         * @param {string} eventId 
+         * @param {RegistrationEntity} registrationEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdDelete(eventId: string, options?: any): AxiosPromise<void> {
-            return localVarFp.apiEventsEventIdDelete(eventId, options).then((request) => request(axios, basePath));
+        createRegistrationEntity(registrationEntity: RegistrationEntity, options?: any): AxiosPromise<RegistrationEntity> {
+            return localVarFp.createRegistrationEntity(registrationEntity, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} eventId 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdGet(eventId: string, options?: any): AxiosPromise<EventDetailsDto> {
-            return localVarFp.apiEventsEventIdGet(eventId, options).then((request) => request(axios, basePath));
+        deleteRegistrationEntity(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteRegistrationEntity(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} eventId 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdPut(eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.apiEventsEventIdPut(eventId, eventBasicDetailsRequest, options).then((request) => request(axios, basePath));
+        getAllRegistrationEntities(options?: any): AxiosPromise<Array<RegistrationEntity>> {
+            return localVarFp.getAllRegistrationEntities(options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [pageSize] 
-         * @param {number} [page] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsGet(pageSize?: number, page?: number, options?: any): AxiosPromise<Array<EventSummaryDto>> {
-            return localVarFp.apiEventsGet(pageSize, page, options).then((request) => request(axios, basePath));
+        getRegistrationEntityById(id: string, options?: any): AxiosPromise<RegistrationEntity> {
+            return localVarFp.getRegistrationEntityById(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
+         * @param {string} id 
+         * @param {RegistrationEntity} registrationEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsPost(eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: any): AxiosPromise<EventDetailsDto> {
-            return localVarFp.apiEventsPost(eventBasicDetailsRequest, options).then((request) => request(axios, basePath));
+        updateRegistrationEntity(id: string, registrationEntity: RegistrationEntity, options?: any): AxiosPromise<void> {
+            return localVarFp.updateRegistrationEntity(id, registrationEntity, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * EventsApi - object-oriented interface
+ * RegistrationEntityApi - object-oriented interface
  * @export
- * @class EventsApi
+ * @class RegistrationEntityApi
  * @extends {BaseAPI}
  */
-export class EventsApi extends BaseAPI {
+export class RegistrationEntityApi extends BaseAPI {
     /**
      * 
-     * @param {string} eventId 
+     * @param {RegistrationEntity} registrationEntity 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EventsApi
+     * @memberof RegistrationEntityApi
      */
-    public apiEventsEventIdDelete(eventId: string, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsEventIdDelete(eventId, options).then((request) => request(this.axios, this.basePath));
+    public createRegistrationEntity(registrationEntity: RegistrationEntity, options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).createRegistrationEntity(registrationEntity, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} eventId 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EventsApi
+     * @memberof RegistrationEntityApi
      */
-    public apiEventsEventIdGet(eventId: string, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsEventIdGet(eventId, options).then((request) => request(this.axios, this.basePath));
+    public deleteRegistrationEntity(id: string, options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).deleteRegistrationEntity(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} eventId 
-     * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EventsApi
+     * @memberof RegistrationEntityApi
      */
-    public apiEventsEventIdPut(eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsEventIdPut(eventId, eventBasicDetailsRequest, options).then((request) => request(this.axios, this.basePath));
+    public getAllRegistrationEntities(options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).getAllRegistrationEntities(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} [pageSize] 
-     * @param {number} [page] 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EventsApi
+     * @memberof RegistrationEntityApi
      */
-    public apiEventsGet(pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsGet(pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    public getRegistrationEntityById(id: string, options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).getRegistrationEntityById(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {EventBasicDetailsRequest} [eventBasicDetailsRequest] 
+     * @param {string} id 
+     * @param {RegistrationEntity} registrationEntity 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EventsApi
+     * @memberof RegistrationEntityApi
      */
-    public apiEventsPost(eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsPost(eventBasicDetailsRequest, options).then((request) => request(this.axios, this.basePath));
+    public updateRegistrationEntity(id: string, registrationEntity: RegistrationEntity, options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).updateRegistrationEntity(id, registrationEntity, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

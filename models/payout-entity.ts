@@ -13,9 +13,6 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { EventEntity } from './event-entity';
 
 /**
  * 
@@ -53,11 +50,5 @@ export interface PayoutEntity {
      * @memberof PayoutEntity
      */
     'priceUsd'?: number;
-    /**
-     * 
-     * @type {EventEntity}
-     * @memberof PayoutEntity
-     */
-    'event'?: EventEntity;
 }
 

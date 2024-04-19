@@ -13,12 +13,6 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { FestivalEntity } from './festival-entity';
-// May contain unused imports in some cases
-// @ts-ignore
-import { TourEntity } from './tour-entity';
 
 /**
  * 
@@ -62,17 +56,5 @@ export interface SeasonEntity {
      * @memberof SeasonEntity
      */
     'thmCode'?: string | null;
-    /**
-     * 
-     * @type {TourEntity}
-     * @memberof SeasonEntity
-     */
-    'tour'?: TourEntity;
-    /**
-     * 
-     * @type {Array<FestivalEntity>}
-     * @memberof SeasonEntity
-     */
-    'festivals'?: Array<FestivalEntity> | null;
 }
 

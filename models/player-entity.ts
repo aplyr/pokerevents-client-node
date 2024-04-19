@@ -13,9 +13,6 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { RegistrationEntity } from './registration-entity';
 
 /**
  * 
@@ -71,11 +68,5 @@ export interface PlayerEntity {
      * @memberof PlayerEntity
      */
     'photos'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<RegistrationEntity>}
-     * @memberof PlayerEntity
-     */
-    'registrations'?: Array<RegistrationEntity> | null;
 }
 

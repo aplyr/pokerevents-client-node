@@ -14,10 +14,13 @@
 
 
 
+export * from './api/day-entity-api';
 export * from './api/events-api';
 export * from './api/festival-entity-api';
 export * from './api/import-api';
+export * from './api/payout-entity-api';
 export * from './api/player-entity-api';
+export * from './api/registration-entity-api';
 export * from './api/season-entity-api';
 export * from './api/sync-api';
 export * from './api/tour-entity-api';

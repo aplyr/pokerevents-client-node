@@ -17,50 +17,44 @@
 /**
  * 
  * @export
- * @interface TourEntity
+ * @interface PayoutDetailsDto
  */
-export interface TourEntity {
+export interface PayoutDetailsDto {
+    /**
+     * 
+     * @type {number}
+     * @memberof PayoutDetailsDto
+     */
+    'position'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PayoutDetailsDto
+     */
+    'prize'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PayoutDetailsDto
+     */
+    'priceUsd'?: number;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof PayoutDetailsDto
      */
-    'id'?: string;
+    'registrationPlayerName'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof PayoutDetailsDto
      */
-    'name'?: string | null;
+    'registrationPlayerId'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourEntity
+     * @memberof PayoutDetailsDto
      */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'logoUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'websiteUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourEntity
-     */
-    'thmId'?: string | null;
+    'registrationPlayerThmId'?: string | null;
 }
 
