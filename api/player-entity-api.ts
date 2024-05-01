@@ -101,10 +101,11 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPlayerEntities: async (pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllPlayerEntities: async (pageSize?: number, page?: number, name?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/PlayerEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -123,6 +124,10 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
+            }
+
+            if (name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
 
 
@@ -246,11 +251,12 @@ export const PlayerEntityApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPlayerEntities(pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPlayerEntities(pageSize, page, options);
+        async getAllPlayerEntities(pageSize?: number, page?: number, name?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPlayerEntities(pageSize, page, name, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayerEntityApi.getAllPlayerEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -312,11 +318,12 @@ export const PlayerEntityApiFactory = function (configuration?: Configuration, b
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPlayerEntities(pageSize?: number, page?: number, options?: any): AxiosPromise<Array<PlayerEntity>> {
-            return localVarFp.getAllPlayerEntities(pageSize, page, options).then((request) => request(axios, basePath));
+        getAllPlayerEntities(pageSize?: number, page?: number, name?: string, options?: any): AxiosPromise<Array<PlayerEntity>> {
+            return localVarFp.getAllPlayerEntities(pageSize, page, name, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -373,12 +380,13 @@ export class PlayerEntityApi extends BaseAPI {
      * 
      * @param {number} [pageSize] 
      * @param {number} [page] 
+     * @param {string} [name] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PlayerEntityApi
      */
-    public getAllPlayerEntities(pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
-        return PlayerEntityApiFp(this.configuration).getAllPlayerEntities(pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    public getAllPlayerEntities(pageSize?: number, page?: number, name?: string, options?: RawAxiosRequestConfig) {
+        return PlayerEntityApiFp(this.configuration).getAllPlayerEntities(pageSize, page, name, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
