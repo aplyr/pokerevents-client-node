@@ -18,6 +18,9 @@
 import { LiveReportingEntity } from './live-reporting-entity';
 // May contain unused imports in some cases
 // @ts-ignore
+import { LiveUpdateState } from './live-update-state';
+// May contain unused imports in some cases
+// @ts-ignore
 import { LiveUpdateType } from './live-update-type';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -55,19 +58,19 @@ export interface LiveUpdateEntity {
      * @type {string}
      * @memberof LiveUpdateEntity
      */
-    'createdById'?: string;
+    'createdById'?: string | null;
     /**
      * 
      * @type {string}
      * @memberof LiveUpdateEntity
      */
-    'modifiedById'?: string;
+    'modifiedById'?: string | null;
     /**
      * 
      * @type {UserEntity}
      * @memberof LiveUpdateEntity
      */
-    'createBy'?: UserEntity;
+    'createdBy'?: UserEntity;
     /**
      * 
      * @type {UserEntity}
@@ -80,6 +83,12 @@ export interface LiveUpdateEntity {
      * @memberof LiveUpdateEntity
      */
     'liveReportingId'?: string;
+    /**
+     * 
+     * @type {LiveUpdateState}
+     * @memberof LiveUpdateEntity
+     */
+    'state'?: LiveUpdateState;
     /**
      * 
      * @type {LiveUpdateType}
@@ -98,12 +107,6 @@ export interface LiveUpdateEntity {
      * @memberof LiveUpdateEntity
      */
     'content'?: any | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof LiveUpdateEntity
-     */
-    'isTechnical'?: boolean;
     /**
      * 
      * @type {LiveReportingEntity}

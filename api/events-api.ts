@@ -32,6 +32,10 @@ import { EventStatisticsDto } from '../models';
 // @ts-ignore
 import { EventSummaryDto } from '../models';
 // @ts-ignore
+import { LiveReportingBasicDetailsRequest } from '../models';
+// @ts-ignore
+import { LiveReportingDetailsDto } from '../models';
+// @ts-ignore
 import { ProblemDetails } from '../models';
 /**
  * EventsApi - axios parameter creator
@@ -99,6 +103,43 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdLiveReportingsPost: async (eventId: string, liveReportingBasicDetailsRequest?: LiveReportingBasicDetailsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiEventsEventIdLiveReportingsPost', 'eventId', eventId)
+            const localVarPath = `/api/Events/{eventId}/LiveReportings`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(liveReportingBasicDetailsRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -325,6 +366,19 @@ export const EventsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} eventId 
+         * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEventsEventIdLiveReportingsPost(eventId: string, liveReportingBasicDetailsRequest?: LiveReportingBasicDetailsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveReportingDetailsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdLiveReportingsPost(eventId, liveReportingBasicDetailsRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdLiveReportingsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {EventMetaDto} [eventMetaDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -417,6 +471,16 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
         /**
          * 
          * @param {string} eventId 
+         * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdLiveReportingsPost(eventId: string, liveReportingBasicDetailsRequest?: LiveReportingBasicDetailsRequest, options?: any): AxiosPromise<LiveReportingDetailsDto> {
+            return localVarFp.apiEventsEventIdLiveReportingsPost(eventId, liveReportingBasicDetailsRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {EventMetaDto} [eventMetaDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -493,6 +557,18 @@ export class EventsApi extends BaseAPI {
      */
     public apiEventsEventIdGet(eventId: string, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).apiEventsEventIdGet(eventId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EventsApi
+     */
+    public apiEventsEventIdLiveReportingsPost(eventId: string, liveReportingBasicDetailsRequest?: LiveReportingBasicDetailsRequest, options?: RawAxiosRequestConfig) {
+        return EventsApiFp(this.configuration).apiEventsEventIdLiveReportingsPost(eventId, liveReportingBasicDetailsRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

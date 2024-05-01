@@ -13,42 +13,35 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { SectionType } from './section-type';
 
 /**
  * 
  * @export
- * @interface PlayerSummaryDto
+ * @interface SectionDto
  */
-export interface PlayerSummaryDto {
+export interface SectionDto {
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {SectionType}
+     * @memberof SectionDto
      */
-    'playerId'?: string | null;
+    'type'?: SectionType;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {number}
+     * @memberof SectionDto
      */
-    'thmId'?: string | null;
+    'order'?: number;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {any}
+     * @memberof SectionDto
      */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'photoUrl'?: string | null;
+    'content'?: any | null;
 }
+
+
 

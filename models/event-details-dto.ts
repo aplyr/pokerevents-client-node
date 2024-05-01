@@ -30,7 +30,7 @@ import { EventStatisticsDto } from './event-statistics-dto';
 import { FestivalDetailsDto } from './festival-details-dto';
 // May contain unused imports in some cases
 // @ts-ignore
-import { LiveReportingEntity } from './live-reporting-entity';
+import { LiveReportingSummaryDto } from './live-reporting-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PayoutDetailsDto } from './payout-details-dto';
@@ -163,10 +163,10 @@ export interface EventDetailsDto {
     'payouts'?: Array<PayoutDetailsDto> | null;
     /**
      * 
-     * @type {Array<LiveReportingEntity>}
+     * @type {Array<LiveReportingSummaryDto>}
      * @memberof EventDetailsDto
      */
-    'liveReportings'?: Array<LiveReportingEntity> | null;
+    'liveReportings'?: Array<LiveReportingSummaryDto> | null;
 }
 
 

@@ -18,6 +18,8 @@ export * from './api/day-entity-api';
 export * from './api/events-api';
 export * from './api/festival-entity-api';
 export * from './api/import-api';
+export * from './api/live-reportings-api';
+export * from './api/live-updates-api';
 export * from './api/payout-entity-api';
 export * from './api/player-entity-api';
 export * from './api/registration-entity-api';

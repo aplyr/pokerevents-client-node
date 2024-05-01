@@ -13,42 +13,53 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { ErrorTypes } from './error-types';
 
 /**
  * 
  * @export
- * @interface PlayerSummaryDto
+ * @interface Result
  */
-export interface PlayerSummaryDto {
+export interface Result {
+    /**
+     * 
+     * @type {any}
+     * @memberof Result
+     */
+    'value'?: any | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Result
+     */
+    'isSuccess'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Result
+     */
+    'isFailure'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof PlayerSummaryDto
+     * @memberof Result
      */
-    'playerId'?: string | null;
+    'errorMessage'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {ErrorTypes}
+     * @memberof Result
      */
-    'thmId'?: string | null;
+    'errorCode'?: ErrorTypes;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {Array<Error>}
+     * @memberof Result
      */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'photoUrl'?: string | null;
+    'errors'?: Array<Error> | null;
 }
+
+
 

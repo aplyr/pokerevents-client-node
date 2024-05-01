@@ -13,42 +13,35 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { ErrorTypes } from './error-types';
 
 /**
  * 
  * @export
- * @interface PlayerSummaryDto
+ * @interface ModelError
  */
-export interface PlayerSummaryDto {
+export interface ModelError {
+    /**
+     * 
+     * @type {ErrorTypes}
+     * @memberof ModelError
+     */
+    'code'?: ErrorTypes;
     /**
      * 
      * @type {string}
-     * @memberof PlayerSummaryDto
+     * @memberof ModelError
      */
-    'playerId'?: string | null;
+    'message'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
+     * @type {{ [key: string]: any; }}
+     * @memberof ModelError
      */
-    'thmId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerSummaryDto
-     */
-    'photoUrl'?: string | null;
+    'params'?: { [key: string]: any; } | null;
 }
+
+
 
