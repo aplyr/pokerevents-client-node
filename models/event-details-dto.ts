@@ -30,6 +30,9 @@ import { EventStatisticsDto } from './event-statistics-dto';
 import { FestivalDetailsDto } from './festival-details-dto';
 // May contain unused imports in some cases
 // @ts-ignore
+import { LiveReportingEntity } from './live-reporting-entity';
+// May contain unused imports in some cases
+// @ts-ignore
 import { PayoutDetailsDto } from './payout-details-dto';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -55,6 +58,18 @@ export interface EventDetailsDto {
      * @type {string}
      * @memberof EventDetailsDto
      */
+    'festivalId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDetailsDto
+     */
+    'venueId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDetailsDto
+     */
     'name'?: string | null;
     /**
      * 
@@ -68,6 +83,18 @@ export interface EventDetailsDto {
      * @memberof EventDetailsDto
      */
     'state'?: StateType;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDetailsDto
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDetailsDto
+     */
+    'summary'?: string | null;
     /**
      * 
      * @type {number}
@@ -134,6 +161,12 @@ export interface EventDetailsDto {
      * @memberof EventDetailsDto
      */
     'payouts'?: Array<PayoutDetailsDto> | null;
+    /**
+     * 
+     * @type {Array<LiveReportingEntity>}
+     * @memberof EventDetailsDto
+     */
+    'liveReportings'?: Array<LiveReportingEntity> | null;
 }
 
 

@@ -99,10 +99,11 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
+         * @param {string} [seasonId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllFestivalEntities: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllFestivalEntities: async (seasonId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/FestivalEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -114,6 +115,10 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (seasonId !== undefined) {
+                localVarQueryParameter['seasonId'] = seasonId;
+            }
 
 
     
@@ -234,11 +239,12 @@ export const FestivalEntityApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} [seasonId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllFestivalEntities(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FestivalEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllFestivalEntities(options);
+        async getAllFestivalEntities(seasonId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FestivalEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllFestivalEntities(seasonId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['FestivalEntityApi.getAllFestivalEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -298,11 +304,12 @@ export const FestivalEntityApiFactory = function (configuration?: Configuration,
         },
         /**
          * 
+         * @param {string} [seasonId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllFestivalEntities(options?: any): AxiosPromise<Array<FestivalEntity>> {
-            return localVarFp.getAllFestivalEntities(options).then((request) => request(axios, basePath));
+        getAllFestivalEntities(seasonId?: string, options?: any): AxiosPromise<Array<FestivalEntity>> {
+            return localVarFp.getAllFestivalEntities(seasonId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -357,12 +364,13 @@ export class FestivalEntityApi extends BaseAPI {
 
     /**
      * 
+     * @param {string} [seasonId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FestivalEntityApi
      */
-    public getAllFestivalEntities(options?: RawAxiosRequestConfig) {
-        return FestivalEntityApiFp(this.configuration).getAllFestivalEntities(options).then((request) => request(this.axios, this.basePath));
+    public getAllFestivalEntities(seasonId?: string, options?: RawAxiosRequestConfig) {
+        return FestivalEntityApiFp(this.configuration).getAllFestivalEntities(seasonId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

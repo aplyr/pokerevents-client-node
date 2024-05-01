@@ -83,6 +83,12 @@ export interface EventBasicDetailsRequest {
      * @memberof EventBasicDetailsRequest
      */
     'thmId'?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof EventBasicDetailsRequest
+     */
+    'photos'?: Array<string> | null;
 }
 
 

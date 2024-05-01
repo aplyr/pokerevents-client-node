@@ -113,6 +113,18 @@ export interface EventSummaryDto {
      * @memberof EventSummaryDto
      */
     'liveReportingsCount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
+    'blindLevelsCount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
+    'payoutsCount'?: number;
 }
 
 

@@ -21,10 +21,9 @@ export * from './api/import-api';
 export * from './api/payout-entity-api';
 export * from './api/player-entity-api';
 export * from './api/registration-entity-api';
+export * from './api/remote-api';
 export * from './api/season-entity-api';
 export * from './api/sync-api';
 export * from './api/tour-entity-api';
-export * from './api/tours-api';
 export * from './api/venue-entity-api';
-export * from './api/venues-api';
 

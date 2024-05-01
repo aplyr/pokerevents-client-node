@@ -33,8 +33,8 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        importPlayersPost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/import-players`;
+        apiImportPlayersPost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/players`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -81,10 +81,10 @@ export const ImportApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async importPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importPlayersPost(playersFile, options);
+        async apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportPlayersPost(playersFile, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ImportApi.importPlayersPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportPlayersPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -103,8 +103,8 @@ export const ImportApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        importPlayersPost(playersFile?: File, options?: any): AxiosPromise<void> {
-            return localVarFp.importPlayersPost(playersFile, options).then((request) => request(axios, basePath));
+        apiImportPlayersPost(playersFile?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportPlayersPost(playersFile, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -123,8 +123,8 @@ export class ImportApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ImportApi
      */
-    public importPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig) {
-        return ImportApiFp(this.configuration).importPlayersPost(playersFile, options).then((request) => request(this.axios, this.basePath));
+    public apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportPlayersPost(playersFile, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

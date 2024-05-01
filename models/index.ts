@@ -1,3 +1,4 @@
+export * from './api-import-players-post-request';
 export * from './blind-level-entity';
 export * from './blind-level-type';
 export * from './chip-count-dto';
@@ -11,7 +12,6 @@ export * from './event-statistics-dto';
 export * from './event-summary-dto';
 export * from './festival-details-dto';
 export * from './festival-entity';
-export * from './import-players-post-request';
 export * from './live-reporting-entity';
 export * from './live-reporting-statistics-dto';
 export * from './live-update-entity';

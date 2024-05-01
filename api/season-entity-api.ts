@@ -99,10 +99,11 @@ export const SeasonEntityApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
+         * @param {string} [tourId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllSeasonEntities: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllSeasonEntities: async (tourId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/SeasonEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -114,6 +115,10 @@ export const SeasonEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (tourId !== undefined) {
+                localVarQueryParameter['tourId'] = tourId;
+            }
 
 
     
@@ -234,11 +239,12 @@ export const SeasonEntityApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} [tourId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllSeasonEntities(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SeasonEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllSeasonEntities(options);
+        async getAllSeasonEntities(tourId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SeasonEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllSeasonEntities(tourId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SeasonEntityApi.getAllSeasonEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -298,11 +304,12 @@ export const SeasonEntityApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @param {string} [tourId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllSeasonEntities(options?: any): AxiosPromise<Array<SeasonEntity>> {
-            return localVarFp.getAllSeasonEntities(options).then((request) => request(axios, basePath));
+        getAllSeasonEntities(tourId?: string, options?: any): AxiosPromise<Array<SeasonEntity>> {
+            return localVarFp.getAllSeasonEntities(tourId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -357,12 +364,13 @@ export class SeasonEntityApi extends BaseAPI {
 
     /**
      * 
+     * @param {string} [tourId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SeasonEntityApi
      */
-    public getAllSeasonEntities(options?: RawAxiosRequestConfig) {
-        return SeasonEntityApiFp(this.configuration).getAllSeasonEntities(options).then((request) => request(this.axios, this.basePath));
+    public getAllSeasonEntities(tourId?: string, options?: RawAxiosRequestConfig) {
+        return SeasonEntityApiFp(this.configuration).getAllSeasonEntities(tourId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

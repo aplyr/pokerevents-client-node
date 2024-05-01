@@ -31,6 +31,12 @@ export interface FestivalDetailsDto {
      * @type {string}
      * @memberof FestivalDetailsDto
      */
+    'seasonId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof FestivalDetailsDto
+     */
     'name'?: string | null;
     /**
      * 
