@@ -99,10 +99,11 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
         },
         /**
          * 
+         * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPayoutEntities: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllPayoutEntities: async (eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/PayoutEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -114,6 +115,10 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (eventId !== undefined) {
+                localVarQueryParameter['eventId'] = eventId;
+            }
 
 
     
@@ -234,11 +239,12 @@ export const PayoutEntityApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPayoutEntities(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PayoutEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPayoutEntities(options);
+        async getAllPayoutEntities(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PayoutEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPayoutEntities(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PayoutEntityApi.getAllPayoutEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -298,11 +304,12 @@ export const PayoutEntityApiFactory = function (configuration?: Configuration, b
         },
         /**
          * 
+         * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPayoutEntities(options?: any): AxiosPromise<Array<PayoutEntity>> {
-            return localVarFp.getAllPayoutEntities(options).then((request) => request(axios, basePath));
+        getAllPayoutEntities(eventId?: string, options?: any): AxiosPromise<Array<PayoutEntity>> {
+            return localVarFp.getAllPayoutEntities(eventId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -357,12 +364,13 @@ export class PayoutEntityApi extends BaseAPI {
 
     /**
      * 
+     * @param {string} [eventId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PayoutEntityApi
      */
-    public getAllPayoutEntities(options?: RawAxiosRequestConfig) {
-        return PayoutEntityApiFp(this.configuration).getAllPayoutEntities(options).then((request) => request(this.axios, this.basePath));
+    public getAllPayoutEntities(eventId?: string, options?: RawAxiosRequestConfig) {
+        return PayoutEntityApiFp(this.configuration).getAllPayoutEntities(eventId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

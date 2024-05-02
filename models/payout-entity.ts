@@ -34,6 +34,12 @@ export interface PayoutEntity {
     'eventId'?: string;
     /**
      * 
+     * @type {string}
+     * @memberof PayoutEntity
+     */
+    'registrationId'?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof PayoutEntity
      */
@@ -49,6 +55,6 @@ export interface PayoutEntity {
      * @type {number}
      * @memberof PayoutEntity
      */
-    'priceUsd'?: number;
+    'prizeUsd'?: number;
 }
 

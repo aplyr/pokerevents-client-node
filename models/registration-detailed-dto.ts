@@ -18,49 +18,67 @@
 import { ActualPrizeDto } from './actual-prize-dto';
 // May contain unused imports in some cases
 // @ts-ignore
+import { PayoutDetailsDto } from './payout-details-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { PlayerSummaryDto } from './player-summary-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { RegistrationStatisticsDto } from './registration-statistics-dto';
 
 /**
  * 
  * @export
- * @interface RegistrationEntity
+ * @interface RegistrationDetailedDto
  */
-export interface RegistrationEntity {
+export interface RegistrationDetailedDto {
     /**
      * 
      * @type {string}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
     'eventId'?: string;
     /**
      * 
      * @type {string}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
-    'playerId'?: string;
+    'payoutId'?: string | null;
     /**
      * 
      * @type {number}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
     'position'?: number | null;
     /**
      * 
      * @type {ActualPrizeDto}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
     'prize'?: ActualPrizeDto;
     /**
      * 
      * @type {RegistrationStatisticsDto}
-     * @memberof RegistrationEntity
+     * @memberof RegistrationDetailedDto
      */
     'statistics'?: RegistrationStatisticsDto;
+    /**
+     * 
+     * @type {PlayerSummaryDto}
+     * @memberof RegistrationDetailedDto
+     */
+    'player'?: PlayerSummaryDto;
+    /**
+     * 
+     * @type {PayoutDetailsDto}
+     * @memberof RegistrationDetailedDto
+     */
+    'payout'?: PayoutDetailsDto;
 }
 

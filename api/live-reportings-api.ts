@@ -75,6 +75,43 @@ export const LiveReportingsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} liveReportingId 
+         * @param {LiveUpdateRequest} [liveUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiLiveReportingsLiveReportingIdLiveUpdatesPost: async (liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'liveReportingId' is not null or undefined
+            assertParamExists('apiLiveReportingsLiveReportingIdLiveUpdatesPost', 'liveReportingId', liveReportingId)
+            const localVarPath = `/api/LiveReportings/{liveReportingId}/LiveUpdates`
+                .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(liveUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
          * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -149,43 +186,6 @@ export const LiveReportingsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} liveReportingId 
-         * @param {LiveUpdateRequest} [liveUpdateRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiLiveReportingsLiveReportingIdUpdatesPost: async (liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'liveReportingId' is not null or undefined
-            assertParamExists('apiLiveReportingsLiveReportingIdUpdatesPost', 'liveReportingId', liveReportingId)
-            const localVarPath = `/api/LiveReportings/{liveReportingId}/updates`
-                .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(liveUpdateRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -241,6 +241,19 @@ export const LiveReportingsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} liveReportingId 
+         * @param {LiveUpdateRequest} [liveUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveUpdateDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId, liveUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LiveReportingsApi.apiLiveReportingsLiveReportingIdLiveUpdatesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
          * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -262,19 +275,6 @@ export const LiveReportingsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiveReportingsLiveReportingIdStatisticsPut(liveReportingId, liveReportingStatisticsDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LiveReportingsApi.apiLiveReportingsLiveReportingIdStatisticsPut']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} liveReportingId 
-         * @param {LiveUpdateRequest} [liveUpdateRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveUpdateDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId, liveUpdateRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LiveReportingsApi.apiLiveReportingsLiveReportingIdUpdatesPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -311,6 +311,16 @@ export const LiveReportingsApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @param {string} liveReportingId 
+         * @param {LiveUpdateRequest} [liveUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: any): AxiosPromise<LiveUpdateDto> {
+            return localVarFp.apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId, liveUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
          * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -327,16 +337,6 @@ export const LiveReportingsApiFactory = function (configuration?: Configuration,
          */
         apiLiveReportingsLiveReportingIdStatisticsPut(liveReportingId: string, liveReportingStatisticsDto?: LiveReportingStatisticsDto, options?: any): AxiosPromise<void> {
             return localVarFp.apiLiveReportingsLiveReportingIdStatisticsPut(liveReportingId, liveReportingStatisticsDto, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} liveReportingId 
-         * @param {LiveUpdateRequest} [liveUpdateRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: any): AxiosPromise<LiveUpdateDto> {
-            return localVarFp.apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId, liveUpdateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -371,6 +371,18 @@ export class LiveReportingsApi extends BaseAPI {
     /**
      * 
      * @param {string} liveReportingId 
+     * @param {LiveUpdateRequest} [liveUpdateRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LiveReportingsApi
+     */
+    public apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: RawAxiosRequestConfig) {
+        return LiveReportingsApiFp(this.configuration).apiLiveReportingsLiveReportingIdLiveUpdatesPost(liveReportingId, liveUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} liveReportingId 
      * @param {LiveReportingBasicDetailsRequest} [liveReportingBasicDetailsRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -390,18 +402,6 @@ export class LiveReportingsApi extends BaseAPI {
      */
     public apiLiveReportingsLiveReportingIdStatisticsPut(liveReportingId: string, liveReportingStatisticsDto?: LiveReportingStatisticsDto, options?: RawAxiosRequestConfig) {
         return LiveReportingsApiFp(this.configuration).apiLiveReportingsLiveReportingIdStatisticsPut(liveReportingId, liveReportingStatisticsDto, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} liveReportingId 
-     * @param {LiveUpdateRequest} [liveUpdateRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof LiveReportingsApi
-     */
-    public apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId: string, liveUpdateRequest?: LiveUpdateRequest, options?: RawAxiosRequestConfig) {
-        return LiveReportingsApiFp(this.configuration).apiLiveReportingsLiveReportingIdUpdatesPost(liveReportingId, liveUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -261,10 +261,11 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [festivalId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsGet: async (pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiEventsGet: async (pageSize?: number, page?: number, festivalId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Events`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -283,6 +284,10 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
+            }
+
+            if (festivalId !== undefined) {
+                localVarQueryParameter['festivalId'] = festivalId;
             }
 
 
@@ -419,11 +424,12 @@ export const EventsApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [festivalId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsGet(pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EventSummaryDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsGet(pageSize, page, options);
+        async apiEventsGet(pageSize?: number, page?: number, festivalId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EventSummaryDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsGet(pageSize, page, festivalId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -512,11 +518,12 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
          * 
          * @param {number} [pageSize] 
          * @param {number} [page] 
+         * @param {string} [festivalId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsGet(pageSize?: number, page?: number, options?: any): AxiosPromise<Array<EventSummaryDto>> {
-            return localVarFp.apiEventsGet(pageSize, page, options).then((request) => request(axios, basePath));
+        apiEventsGet(pageSize?: number, page?: number, festivalId?: string, options?: any): AxiosPromise<Array<EventSummaryDto>> {
+            return localVarFp.apiEventsGet(pageSize, page, festivalId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -611,12 +618,13 @@ export class EventsApi extends BaseAPI {
      * 
      * @param {number} [pageSize] 
      * @param {number} [page] 
+     * @param {string} [festivalId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EventsApi
      */
-    public apiEventsGet(pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
-        return EventsApiFp(this.configuration).apiEventsGet(pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    public apiEventsGet(pageSize?: number, page?: number, festivalId?: string, options?: RawAxiosRequestConfig) {
+        return EventsApiFp(this.configuration).apiEventsGet(pageSize, page, festivalId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

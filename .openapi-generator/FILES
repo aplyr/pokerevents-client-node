@@ -2,6 +2,7 @@
 .npmignore
 README.md
 api.ts
+api/blind-level-entity-api.ts
 api/day-entity-api.ts
 api/events-api.ts
 api/festival-entity-api.ts
@@ -10,6 +11,7 @@ api/live-reportings-api.ts
 api/live-updates-api.ts
 api/payout-entity-api.ts
 api/player-entity-api.ts
+api/poker-events-api-version1000-cultureneutral-public-key-tokennull-api.ts
 api/registration-entity-api.ts
 api/remote-api.ts
 api/season-entity-api.ts
@@ -21,7 +23,9 @@ common.ts
 configuration.ts
 git_push.sh
 index.ts
+models/actual-prize-dto.ts
 models/api-import-players-post-request.ts
+models/blind-level-dto.ts
 models/blind-level-entity.ts
 models/blind-level-type.ts
 models/chip-count-dto.ts
@@ -30,7 +34,6 @@ models/day-entity.ts
 models/error-types.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
-models/event-entity.ts
 models/event-meta-dto.ts
 models/event-statistics-dto.ts
 models/event-summary-dto.ts
@@ -39,11 +42,9 @@ models/festival-entity.ts
 models/index.ts
 models/live-reporting-basic-details-request.ts
 models/live-reporting-details-dto.ts
-models/live-reporting-entity.ts
 models/live-reporting-statistics-dto.ts
 models/live-reporting-summary-dto.ts
 models/live-update-dto.ts
-models/live-update-entity.ts
 models/live-update-request.ts
 models/live-update-state.ts
 models/live-update-type.ts
@@ -53,12 +54,12 @@ models/payout-entity.ts
 models/player-entity.ts
 models/player-summary-dto.ts
 models/problem-details.ts
+models/registration-detailed-dto.ts
 models/registration-entity.ts
 models/registration-statistics-dto.ts
 models/result.ts
 models/season-entity.ts
 models/section-dto.ts
-models/section-entity.ts
 models/section-type.ts
 models/state-type.ts
 models/thm-sync-request.ts
@@ -66,7 +67,6 @@ models/thm-sync-result-item.ts
 models/thm-sync-result.ts
 models/tour-dto.ts
 models/tour-entity.ts
-models/user-entity.ts
 models/venue-details-dto.ts
 models/venue-dto.ts
 models/venue-entity.ts

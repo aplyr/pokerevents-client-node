@@ -97,7 +97,7 @@ export interface LiveReportingDetailsDto {
      * @type {Array<LiveUpdateDto>}
      * @memberof LiveReportingDetailsDto
      */
-    'updates'?: Array<LiveUpdateDto> | null;
+    'liveUpdates'?: Array<LiveUpdateDto> | null;
 }
 
 

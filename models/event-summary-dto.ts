@@ -112,6 +112,12 @@ export interface EventSummaryDto {
      * @type {number}
      * @memberof EventSummaryDto
      */
+    'registrationsCount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventSummaryDto
+     */
     'liveReportingsCount'?: number;
     /**
      * 

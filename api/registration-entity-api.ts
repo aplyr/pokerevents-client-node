@@ -99,10 +99,13 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
         },
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllRegistrationEntities: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllRegistrationEntities: async (eventId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('getAllRegistrationEntities', 'eventId', eventId)
             const localVarPath = `/api/RegistrationEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -114,6 +117,10 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (eventId !== undefined) {
+                localVarQueryParameter['eventId'] = eventId;
+            }
 
 
     
@@ -234,11 +241,12 @@ export const RegistrationEntityApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllRegistrationEntities(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RegistrationEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllRegistrationEntities(options);
+        async getAllRegistrationEntities(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RegistrationEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllRegistrationEntities(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.getAllRegistrationEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -298,11 +306,12 @@ export const RegistrationEntityApiFactory = function (configuration?: Configurat
         },
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllRegistrationEntities(options?: any): AxiosPromise<Array<RegistrationEntity>> {
-            return localVarFp.getAllRegistrationEntities(options).then((request) => request(axios, basePath));
+        getAllRegistrationEntities(eventId: string, options?: any): AxiosPromise<Array<RegistrationEntity>> {
+            return localVarFp.getAllRegistrationEntities(eventId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -357,12 +366,13 @@ export class RegistrationEntityApi extends BaseAPI {
 
     /**
      * 
+     * @param {string} eventId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RegistrationEntityApi
      */
-    public getAllRegistrationEntities(options?: RawAxiosRequestConfig) {
-        return RegistrationEntityApiFp(this.configuration).getAllRegistrationEntities(options).then((request) => request(this.axios, this.basePath));
+    public getAllRegistrationEntities(eventId: string, options?: RawAxiosRequestConfig) {
+        return RegistrationEntityApiFp(this.configuration).getAllRegistrationEntities(eventId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

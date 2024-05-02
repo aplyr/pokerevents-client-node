@@ -21,6 +21,9 @@ import { LiveUpdateState } from './live-update-state';
 import { LiveUpdateType } from './live-update-type';
 // May contain unused imports in some cases
 // @ts-ignore
+import { PlayerSummaryDto } from './player-summary-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { SectionDto } from './section-dto';
 
 /**
@@ -29,6 +32,12 @@ import { SectionDto } from './section-dto';
  * @interface LiveUpdateRequest
  */
 export interface LiveUpdateRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof LiveUpdateRequest
+     */
+    'blindLevelId'?: string | null;
     /**
      * 
      * @type {string}
@@ -59,6 +68,18 @@ export interface LiveUpdateRequest {
      * @memberof LiveUpdateRequest
      */
     'sections'?: Array<SectionDto> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof LiveUpdateRequest
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PlayerSummaryDto>}
+     * @memberof LiveUpdateRequest
+     */
+    'players'?: Array<PlayerSummaryDto> | null;
 }
 
 

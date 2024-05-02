@@ -20,73 +20,73 @@ import { BlindLevelType } from './blind-level-type';
 /**
  * 
  * @export
- * @interface BlindLevelEntity
+ * @interface BlindLevelDto
  */
-export interface BlindLevelEntity {
+export interface BlindLevelDto {
     /**
      * 
      * @type {string}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'eventId'?: string;
     /**
      * 
      * @type {BlindLevelType}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'type'?: BlindLevelType;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'order'?: number;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'number'?: number | null;
     /**
      * 
      * @type {string}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'smallBlind'?: number | null;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'bigBlind'?: number | null;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'ante'?: number | null;
     /**
      * 
      * @type {number}
-     * @memberof BlindLevelEntity
+     * @memberof BlindLevelDto
      */
     'durationInMinutes'?: number | null;
 }

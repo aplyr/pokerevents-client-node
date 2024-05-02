@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BlindLevelEntity } from './blind-level-entity';
+import { BlindLevelDto } from './blind-level-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { DayEntity } from './day-entity';
@@ -34,6 +34,9 @@ import { LiveReportingSummaryDto } from './live-reporting-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PayoutDetailsDto } from './payout-details-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { RegistrationDetailedDto } from './registration-detailed-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { StateType } from './state-type';
@@ -151,16 +154,22 @@ export interface EventDetailsDto {
     'days'?: Array<DayEntity> | null;
     /**
      * 
-     * @type {Array<BlindLevelEntity>}
+     * @type {Array<BlindLevelDto>}
      * @memberof EventDetailsDto
      */
-    'blindLevels'?: Array<BlindLevelEntity> | null;
+    'blindLevels'?: Array<BlindLevelDto> | null;
     /**
      * 
      * @type {Array<PayoutDetailsDto>}
      * @memberof EventDetailsDto
      */
     'payouts'?: Array<PayoutDetailsDto> | null;
+    /**
+     * 
+     * @type {Array<RegistrationDetailedDto>}
+     * @memberof EventDetailsDto
+     */
+    'registrations'?: Array<RegistrationDetailedDto> | null;
     /**
      * 
      * @type {Array<LiveReportingSummaryDto>}

@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { BlindLevelDto } from './blind-level-dto';
 
 /**
  * 
@@ -56,5 +59,11 @@ export interface LiveReportingStatisticsDto {
      * @memberof LiveReportingStatisticsDto
      */
     'averageStack'?: number;
+    /**
+     * 
+     * @type {BlindLevelDto}
+     * @memberof LiveReportingStatisticsDto
+     */
+    'currentBlindLevel'?: BlindLevelDto;
 }
 

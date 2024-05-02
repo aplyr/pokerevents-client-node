@@ -17,14 +17,20 @@
 /**
  * 
  * @export
- * @enum {string}
+ * @interface ActualPrizeDto
  */
-
-export enum LiveUpdateState {
-    Draft = 'Draft',
-    Published = 'Published',
-    Archived = 'Archived'
+export interface ActualPrizeDto {
+    /**
+     * 
+     * @type {number}
+     * @memberof ActualPrizeDto
+     */
+    'prize'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ActualPrizeDto
+     */
+    'prizeUsd'?: number | null;
 }
-
-
 

@@ -46,13 +46,19 @@ export interface RegistrationStatisticsDto {
      * @type {number}
      * @memberof RegistrationStatisticsDto
      */
-    'seat'?: number;
+    'seat'?: number | null;
     /**
      * 
      * @type {number}
      * @memberof RegistrationStatisticsDto
      */
-    'table'?: number;
+    'table'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof RegistrationStatisticsDto
+     */
+    'bounty'?: number | null;
     /**
      * 
      * @type {ChipCountDto}

@@ -22,23 +22,23 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { DayEntity } from '../models';
+import { BlindLevelEntity } from '../models';
 /**
- * DayEntityApi - axios parameter creator
+ * BlindLevelEntityApi - axios parameter creator
  * @export
  */
-export const DayEntityApiAxiosParamCreator = function (configuration?: Configuration) {
+export const BlindLevelEntityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createDayEntity: async (dayEntity: DayEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dayEntity' is not null or undefined
-            assertParamExists('createDayEntity', 'dayEntity', dayEntity)
-            const localVarPath = `/api/DayEntity`;
+        createBlindLevelEntity: async (blindLevelEntity: BlindLevelEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'blindLevelEntity' is not null or undefined
+            assertParamExists('createBlindLevelEntity', 'blindLevelEntity', blindLevelEntity)
+            const localVarPath = `/api/BlindLevelEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -57,7 +57,7 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dayEntity, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(blindLevelEntity, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -70,10 +70,10 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDayEntity: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteBlindLevelEntity: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteDayEntity', 'id', id)
-            const localVarPath = `/api/DayEntity/{id}`
+            assertParamExists('deleteBlindLevelEntity', 'id', id)
+            const localVarPath = `/api/BlindLevelEntity/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -103,8 +103,8 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllDayEntities: async (eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/DayEntity`;
+        getAllBlindLevelEntities: async (eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/BlindLevelEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -137,10 +137,10 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDayEntityById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getBlindLevelEntityById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDayEntityById', 'id', id)
-            const localVarPath = `/api/DayEntity/{id}`
+            assertParamExists('getBlindLevelEntityById', 'id', id)
+            const localVarPath = `/api/BlindLevelEntity/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -167,16 +167,16 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @param {string} id 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDayEntity: async (id: string, dayEntity: DayEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateBlindLevelEntity: async (id: string, blindLevelEntity: BlindLevelEntity, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateDayEntity', 'id', id)
-            // verify required parameter 'dayEntity' is not null or undefined
-            assertParamExists('updateDayEntity', 'dayEntity', dayEntity)
-            const localVarPath = `/api/DayEntity/{id}`
+            assertParamExists('updateBlindLevelEntity', 'id', id)
+            // verify required parameter 'blindLevelEntity' is not null or undefined
+            assertParamExists('updateBlindLevelEntity', 'blindLevelEntity', blindLevelEntity)
+            const localVarPath = `/api/BlindLevelEntity/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -196,7 +196,7 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dayEntity, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(blindLevelEntity, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -207,22 +207,22 @@ export const DayEntityApiAxiosParamCreator = function (configuration?: Configura
 };
 
 /**
- * DayEntityApi - functional programming interface
+ * BlindLevelEntityApi - functional programming interface
  * @export
  */
-export const DayEntityApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DayEntityApiAxiosParamCreator(configuration)
+export const BlindLevelEntityApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = BlindLevelEntityApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createDayEntity(dayEntity: DayEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DayEntity>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDayEntity(dayEntity, options);
+        async createBlindLevelEntity(blindLevelEntity: BlindLevelEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BlindLevelEntity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBlindLevelEntity(blindLevelEntity, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DayEntityApi.createDayEntity']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.createBlindLevelEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -231,10 +231,10 @@ export const DayEntityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteDayEntity(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDayEntity(id, options);
+        async deleteBlindLevelEntity(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBlindLevelEntity(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DayEntityApi.deleteDayEntity']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.deleteBlindLevelEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -243,10 +243,10 @@ export const DayEntityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllDayEntities(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DayEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllDayEntities(eventId, options);
+        async getAllBlindLevelEntities(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BlindLevelEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllBlindLevelEntities(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DayEntityApi.getAllDayEntities']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.getAllBlindLevelEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -255,43 +255,43 @@ export const DayEntityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDayEntityById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DayEntity>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDayEntityById(id, options);
+        async getBlindLevelEntityById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BlindLevelEntity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBlindLevelEntityById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DayEntityApi.getDayEntityById']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.getBlindLevelEntityById']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @param {string} id 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateDayEntity(id: string, dayEntity: DayEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDayEntity(id, dayEntity, options);
+        async updateBlindLevelEntity(id: string, blindLevelEntity: BlindLevelEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateBlindLevelEntity(id, blindLevelEntity, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DayEntityApi.updateDayEntity']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.updateBlindLevelEntity']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DayEntityApi - factory interface
+ * BlindLevelEntityApi - factory interface
  * @export
  */
-export const DayEntityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DayEntityApiFp(configuration)
+export const BlindLevelEntityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = BlindLevelEntityApiFp(configuration)
     return {
         /**
          * 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createDayEntity(dayEntity: DayEntity, options?: any): AxiosPromise<DayEntity> {
-            return localVarFp.createDayEntity(dayEntity, options).then((request) => request(axios, basePath));
+        createBlindLevelEntity(blindLevelEntity: BlindLevelEntity, options?: any): AxiosPromise<BlindLevelEntity> {
+            return localVarFp.createBlindLevelEntity(blindLevelEntity, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -299,8 +299,8 @@ export const DayEntityApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDayEntity(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteDayEntity(id, options).then((request) => request(axios, basePath));
+        deleteBlindLevelEntity(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteBlindLevelEntity(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -308,8 +308,8 @@ export const DayEntityApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllDayEntities(eventId?: string, options?: any): AxiosPromise<Array<DayEntity>> {
-            return localVarFp.getAllDayEntities(eventId, options).then((request) => request(axios, basePath));
+        getAllBlindLevelEntities(eventId?: string, options?: any): AxiosPromise<Array<BlindLevelEntity>> {
+            return localVarFp.getAllBlindLevelEntities(eventId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -317,38 +317,38 @@ export const DayEntityApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDayEntityById(id: string, options?: any): AxiosPromise<DayEntity> {
-            return localVarFp.getDayEntityById(id, options).then((request) => request(axios, basePath));
+        getBlindLevelEntityById(id: string, options?: any): AxiosPromise<BlindLevelEntity> {
+            return localVarFp.getBlindLevelEntityById(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {DayEntity} dayEntity 
+         * @param {BlindLevelEntity} blindLevelEntity 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDayEntity(id: string, dayEntity: DayEntity, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDayEntity(id, dayEntity, options).then((request) => request(axios, basePath));
+        updateBlindLevelEntity(id: string, blindLevelEntity: BlindLevelEntity, options?: any): AxiosPromise<void> {
+            return localVarFp.updateBlindLevelEntity(id, blindLevelEntity, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * DayEntityApi - object-oriented interface
+ * BlindLevelEntityApi - object-oriented interface
  * @export
- * @class DayEntityApi
+ * @class BlindLevelEntityApi
  * @extends {BaseAPI}
  */
-export class DayEntityApi extends BaseAPI {
+export class BlindLevelEntityApi extends BaseAPI {
     /**
      * 
-     * @param {DayEntity} dayEntity 
+     * @param {BlindLevelEntity} blindLevelEntity 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DayEntityApi
+     * @memberof BlindLevelEntityApi
      */
-    public createDayEntity(dayEntity: DayEntity, options?: RawAxiosRequestConfig) {
-        return DayEntityApiFp(this.configuration).createDayEntity(dayEntity, options).then((request) => request(this.axios, this.basePath));
+    public createBlindLevelEntity(blindLevelEntity: BlindLevelEntity, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).createBlindLevelEntity(blindLevelEntity, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -356,10 +356,10 @@ export class DayEntityApi extends BaseAPI {
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DayEntityApi
+     * @memberof BlindLevelEntityApi
      */
-    public deleteDayEntity(id: string, options?: RawAxiosRequestConfig) {
-        return DayEntityApiFp(this.configuration).deleteDayEntity(id, options).then((request) => request(this.axios, this.basePath));
+    public deleteBlindLevelEntity(id: string, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).deleteBlindLevelEntity(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -367,10 +367,10 @@ export class DayEntityApi extends BaseAPI {
      * @param {string} [eventId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DayEntityApi
+     * @memberof BlindLevelEntityApi
      */
-    public getAllDayEntities(eventId?: string, options?: RawAxiosRequestConfig) {
-        return DayEntityApiFp(this.configuration).getAllDayEntities(eventId, options).then((request) => request(this.axios, this.basePath));
+    public getAllBlindLevelEntities(eventId?: string, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).getAllBlindLevelEntities(eventId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -378,22 +378,22 @@ export class DayEntityApi extends BaseAPI {
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DayEntityApi
+     * @memberof BlindLevelEntityApi
      */
-    public getDayEntityById(id: string, options?: RawAxiosRequestConfig) {
-        return DayEntityApiFp(this.configuration).getDayEntityById(id, options).then((request) => request(this.axios, this.basePath));
+    public getBlindLevelEntityById(id: string, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).getBlindLevelEntityById(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
-     * @param {DayEntity} dayEntity 
+     * @param {BlindLevelEntity} blindLevelEntity 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DayEntityApi
+     * @memberof BlindLevelEntityApi
      */
-    public updateDayEntity(id: string, dayEntity: DayEntity, options?: RawAxiosRequestConfig) {
-        return DayEntityApiFp(this.configuration).updateDayEntity(id, dayEntity, options).then((request) => request(this.axios, this.basePath));
+    public updateBlindLevelEntity(id: string, blindLevelEntity: BlindLevelEntity, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).updateBlindLevelEntity(id, blindLevelEntity, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

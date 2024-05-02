@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { PlayerSummaryDto } from './player-summary-dto';
 
 /**
  * 
@@ -20,6 +23,18 @@
  * @interface PayoutDetailsDto
  */
 export interface PayoutDetailsDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof PayoutDetailsDto
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PayoutDetailsDto
+     */
+    'registrationId'?: string;
     /**
      * 
      * @type {number}
@@ -37,24 +52,12 @@ export interface PayoutDetailsDto {
      * @type {number}
      * @memberof PayoutDetailsDto
      */
-    'priceUsd'?: number;
+    'prizeUsd'?: number;
     /**
      * 
-     * @type {string}
+     * @type {PlayerSummaryDto}
      * @memberof PayoutDetailsDto
      */
-    'registrationPlayerName'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PayoutDetailsDto
-     */
-    'registrationPlayerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PayoutDetailsDto
-     */
-    'registrationPlayerThmId'?: string | null;
+    'registrationPlayer'?: PlayerSummaryDto;
 }
 
