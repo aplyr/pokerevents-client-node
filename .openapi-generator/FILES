@@ -29,6 +29,7 @@ models/blind-level-dto.ts
 models/blind-level-entity.ts
 models/blind-level-type.ts
 models/chip-count-dto.ts
+models/chip-count-update-dto.ts
 models/chip-information-source.ts
 models/day-entity.ts
 models/error-types.ts

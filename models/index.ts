@@ -4,6 +4,7 @@ export * from './blind-level-dto';
 export * from './blind-level-entity';
 export * from './blind-level-type';
 export * from './chip-count-dto';
+export * from './chip-count-update-dto';
 export * from './chip-information-source';
 export * from './day-entity';
 export * from './error-types';

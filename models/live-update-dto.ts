@@ -115,6 +115,12 @@ export interface LiveUpdateDto {
     'tags'?: Array<string> | null;
     /**
      * 
+     * @type {string}
+     * @memberof LiveUpdateDto
+     */
+    'blindLevelId'?: string | null;
+    /**
+     * 
      * @type {BlindLevelDto}
      * @memberof LiveUpdateDto
      */

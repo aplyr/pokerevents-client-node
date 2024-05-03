@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { ChipCountUpdateDto } from './chip-count-update-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { LiveUpdateState } from './live-update-state';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -80,6 +83,12 @@ export interface LiveUpdateRequest {
      * @memberof LiveUpdateRequest
      */
     'players'?: Array<PlayerSummaryDto> | null;
+    /**
+     * 
+     * @type {Array<ChipCountUpdateDto>}
+     * @memberof LiveUpdateRequest
+     */
+    'chipCounts'?: Array<ChipCountUpdateDto> | null;
 }
 
 

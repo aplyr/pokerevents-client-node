@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import { ChipCountUpdateDto } from '../models';
+// @ts-ignore
 import { EventBasicDetailsRequest } from '../models';
 // @ts-ignore
 import { EventDetailsDto } from '../models';
@@ -37,12 +39,51 @@ import { LiveReportingBasicDetailsRequest } from '../models';
 import { LiveReportingDetailsDto } from '../models';
 // @ts-ignore
 import { ProblemDetails } from '../models';
+// @ts-ignore
+import { Result } from '../models';
 /**
  * EventsApi - axios parameter creator
  * @export
  */
 export const EventsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {Array<ChipCountUpdateDto>} [chipCountUpdateDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdChipCountsPost: async (eventId: string, chipCountUpdateDto?: Array<ChipCountUpdateDto>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiEventsEventIdChipCountsPost', 'eventId', eventId)
+            const localVarPath = `/api/Events/{eventId}/ChipCounts`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(chipCountUpdateDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {string} eventId 
@@ -347,6 +388,19 @@ export const EventsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} eventId 
+         * @param {Array<ChipCountUpdateDto>} [chipCountUpdateDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEventsEventIdChipCountsPost(eventId: string, chipCountUpdateDto?: Array<ChipCountUpdateDto>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdChipCountsPost(eventId, chipCountUpdateDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdChipCountsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -459,6 +513,16 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
         /**
          * 
          * @param {string} eventId 
+         * @param {Array<ChipCountUpdateDto>} [chipCountUpdateDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdChipCountsPost(eventId: string, chipCountUpdateDto?: Array<ChipCountUpdateDto>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiEventsEventIdChipCountsPost(eventId, chipCountUpdateDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -544,6 +608,18 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
  * @extends {BaseAPI}
  */
 export class EventsApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {Array<ChipCountUpdateDto>} [chipCountUpdateDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EventsApi
+     */
+    public apiEventsEventIdChipCountsPost(eventId: string, chipCountUpdateDto?: Array<ChipCountUpdateDto>, options?: RawAxiosRequestConfig) {
+        return EventsApiFp(this.configuration).apiEventsEventIdChipCountsPost(eventId, chipCountUpdateDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {string} eventId 
