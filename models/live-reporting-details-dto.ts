@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { BlindLevelDto } from './blind-level-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { EventSummaryDto } from './event-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -22,6 +25,9 @@ import { LiveReportingStatisticsDto } from './live-reporting-statistics-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { LiveUpdateDto } from './live-update-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { PlayerSummaryDto } from './player-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { StateType } from './state-type';
@@ -98,6 +104,24 @@ export interface LiveReportingDetailsDto {
      * @memberof LiveReportingDetailsDto
      */
     'liveUpdates'?: Array<LiveUpdateDto> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof LiveReportingDetailsDto
+     */
+    'allTags'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PlayerSummaryDto>}
+     * @memberof LiveReportingDetailsDto
+     */
+    'allPlayers'?: Array<PlayerSummaryDto> | null;
+    /**
+     * 
+     * @type {Array<BlindLevelDto>}
+     * @memberof LiveReportingDetailsDto
+     */
+    'allBlindLevels'?: Array<BlindLevelDto> | null;
 }
 
 
