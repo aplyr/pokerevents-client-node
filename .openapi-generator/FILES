@@ -11,11 +11,12 @@ api/live-reportings-api.ts
 api/live-updates-api.ts
 api/payout-entity-api.ts
 api/player-entity-api.ts
-api/poker-events-api-version1000-cultureneutral-public-key-tokennull-api.ts
+api/registration-details-api.ts
 api/registration-entity-api.ts
 api/remote-api.ts
 api/season-entity-api.ts
 api/sync-api.ts
+api/testingapi.ts
 api/tour-entity-api.ts
 api/venue-entity-api.ts
 base.ts
@@ -57,6 +58,7 @@ models/player-summary-dto.ts
 models/problem-details.ts
 models/registration-detailed-dto.ts
 models/registration-entity.ts
+models/registration-request.ts
 models/registration-statistics-dto.ts
 models/result.ts
 models/season-entity.ts

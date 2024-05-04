@@ -31,6 +31,7 @@ export * from './player-summary-dto';
 export * from './problem-details';
 export * from './registration-detailed-dto';
 export * from './registration-entity';
+export * from './registration-request';
 export * from './registration-statistics-dto';
 export * from './result';
 export * from './season-entity';

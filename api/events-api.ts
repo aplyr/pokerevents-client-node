@@ -40,6 +40,8 @@ import { LiveReportingDetailsDto } from '../models';
 // @ts-ignore
 import { ProblemDetails } from '../models';
 // @ts-ignore
+import { RegistrationRequest } from '../models';
+// @ts-ignore
 import { Result } from '../models';
 /**
  * EventsApi - axios parameter creator
@@ -264,6 +266,43 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * 
          * @param {string} eventId 
+         * @param {Array<RegistrationRequest>} [registrationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdRegistrationsPost: async (eventId: string, registrationRequest?: Array<RegistrationRequest>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiEventsEventIdRegistrationsPost', 'eventId', eventId)
+            const localVarPath = `/api/Events/{eventId}/Registrations`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(registrationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {EventStatisticsDto} [eventStatisticsDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -464,6 +503,19 @@ export const EventsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} eventId 
+         * @param {Array<RegistrationRequest>} [registrationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEventsEventIdRegistrationsPost(eventId: string, registrationRequest?: Array<RegistrationRequest>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdRegistrationsPost(eventId, registrationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdRegistrationsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} eventId 
          * @param {EventStatisticsDto} [eventStatisticsDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -567,6 +619,16 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
          */
         apiEventsEventIdPut(eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: any): AxiosPromise<void> {
             return localVarFp.apiEventsEventIdPut(eventId, eventBasicDetailsRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {Array<RegistrationRequest>} [registrationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEventsEventIdRegistrationsPost(eventId: string, registrationRequest?: Array<RegistrationRequest>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiEventsEventIdRegistrationsPost(eventId, registrationRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -676,6 +738,18 @@ export class EventsApi extends BaseAPI {
      */
     public apiEventsEventIdPut(eventId: string, eventBasicDetailsRequest?: EventBasicDetailsRequest, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).apiEventsEventIdPut(eventId, eventBasicDetailsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {Array<RegistrationRequest>} [registrationRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EventsApi
+     */
+    public apiEventsEventIdRegistrationsPost(eventId: string, registrationRequest?: Array<RegistrationRequest>, options?: RawAxiosRequestConfig) {
+        return EventsApiFp(this.configuration).apiEventsEventIdRegistrationsPost(eventId, registrationRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
