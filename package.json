@@ -1,6 +1,6 @@
 {
   "name": "@pokerevents/client",
-  "version": "1.0.0-SNAPSHOT.202405041935",
+  "version": "1.0-SNAPSHOT.202405060942",
   "description": "OpenAPI client for @pokerevents/client",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
