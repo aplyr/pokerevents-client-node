@@ -49,6 +49,12 @@ export interface LiveUpdateRequest {
     'title'?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof LiveUpdateRequest
+     */
+    'recordedAt'?: string;
+    /**
+     * 
      * @type {LiveUpdateState}
      * @memberof LiveUpdateRequest
      */
