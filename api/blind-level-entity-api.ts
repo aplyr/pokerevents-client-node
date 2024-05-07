@@ -66,6 +66,41 @@ export const BlindLevelEntityApiAxiosParamCreator = function (configuration?: Co
         },
         /**
          * 
+         * @param {Array<BlindLevelEntity>} blindLevelEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBlindLevelEntityBatch: async (blindLevelEntity: Array<BlindLevelEntity>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'blindLevelEntity' is not null or undefined
+            assertParamExists('createBlindLevelEntityBatch', 'blindLevelEntity', blindLevelEntity)
+            const localVarPath = `/api/BlindLevelEntity/batch`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(blindLevelEntity, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -227,6 +262,18 @@ export const BlindLevelEntityApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {Array<BlindLevelEntity>} blindLevelEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createBlindLevelEntityBatch(blindLevelEntity: Array<BlindLevelEntity>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBlindLevelEntityBatch(blindLevelEntity, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BlindLevelEntityApi.createBlindLevelEntityBatch']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -295,6 +342,15 @@ export const BlindLevelEntityApiFactory = function (configuration?: Configuratio
         },
         /**
          * 
+         * @param {Array<BlindLevelEntity>} blindLevelEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBlindLevelEntityBatch(blindLevelEntity: Array<BlindLevelEntity>, options?: any): AxiosPromise<void> {
+            return localVarFp.createBlindLevelEntityBatch(blindLevelEntity, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -349,6 +405,17 @@ export class BlindLevelEntityApi extends BaseAPI {
      */
     public createBlindLevelEntity(blindLevelEntity: BlindLevelEntity, options?: RawAxiosRequestConfig) {
         return BlindLevelEntityApiFp(this.configuration).createBlindLevelEntity(blindLevelEntity, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Array<BlindLevelEntity>} blindLevelEntity 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BlindLevelEntityApi
+     */
+    public createBlindLevelEntityBatch(blindLevelEntity: Array<BlindLevelEntity>, options?: RawAxiosRequestConfig) {
+        return BlindLevelEntityApiFp(this.configuration).createBlindLevelEntityBatch(blindLevelEntity, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

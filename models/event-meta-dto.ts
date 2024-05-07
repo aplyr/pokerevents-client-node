@@ -52,6 +52,12 @@ export interface EventMetaDto {
      * @type {number}
      * @memberof EventMetaDto
      */
+    'startingChips'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventMetaDto
+     */
     'buyIn'?: number | null;
     /**
      * 
@@ -83,6 +89,12 @@ export interface EventMetaDto {
      * @memberof EventMetaDto
      */
     'isRestricted'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EventMetaDto
+     */
+    'useAnte'?: boolean | null;
     /**
      * 
      * @type {PlayerSummaryDto}

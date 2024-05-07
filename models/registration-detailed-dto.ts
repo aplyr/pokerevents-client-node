@@ -49,6 +49,12 @@ export interface RegistrationDetailedDto {
      * @type {string}
      * @memberof RegistrationDetailedDto
      */
+    'playerId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegistrationDetailedDto
+     */
     'payoutId'?: string | null;
     /**
      * 

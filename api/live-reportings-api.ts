@@ -28,6 +28,8 @@ import { LiveReportingDetailsDto } from '../models';
 // @ts-ignore
 import { LiveReportingStatisticsDto } from '../models';
 // @ts-ignore
+import { LiveReportingSummaryDto } from '../models';
+// @ts-ignore
 import { LiveUpdateDto } from '../models';
 // @ts-ignore
 import { LiveUpdateRequest } from '../models';
@@ -39,6 +41,40 @@ import { Result } from '../models';
  */
 export const LiveReportingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @param {string} [eventId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiLiveReportingsGet: async (eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/LiveReportings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (eventId !== undefined) {
+                localVarQueryParameter['eventId'] = eventId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {string} liveReportingId 
@@ -228,6 +264,18 @@ export const LiveReportingsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {string} [eventId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiLiveReportingsGet(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LiveReportingSummaryDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiveReportingsGet(eventId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LiveReportingsApi.apiLiveReportingsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -301,6 +349,15 @@ export const LiveReportingsApiFactory = function (configuration?: Configuration,
     return {
         /**
          * 
+         * @param {string} [eventId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiLiveReportingsGet(eventId?: string, options?: any): AxiosPromise<Array<LiveReportingSummaryDto>> {
+            return localVarFp.apiLiveReportingsGet(eventId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -357,6 +414,17 @@ export const LiveReportingsApiFactory = function (configuration?: Configuration,
  * @extends {BaseAPI}
  */
 export class LiveReportingsApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} [eventId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LiveReportingsApi
+     */
+    public apiLiveReportingsGet(eventId?: string, options?: RawAxiosRequestConfig) {
+        return LiveReportingsApiFp(this.configuration).apiLiveReportingsGet(eventId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {string} liveReportingId 

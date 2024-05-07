@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import { RegistrationDetailedDto } from '../models';
+// @ts-ignore
 import { RegistrationEntity } from '../models';
 /**
  * RegistrationEntityApi - axios parameter creator
@@ -245,7 +247,7 @@ export const RegistrationEntityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllRegistrationEntities(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RegistrationEntity>>> {
+        async getAllRegistrationEntities(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RegistrationDetailedDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllRegistrationEntities(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RegistrationEntityApi.getAllRegistrationEntities']?.[localVarOperationServerIndex]?.url;
@@ -310,7 +312,7 @@ export const RegistrationEntityApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllRegistrationEntities(eventId: string, options?: any): AxiosPromise<Array<RegistrationEntity>> {
+        getAllRegistrationEntities(eventId: string, options?: any): AxiosPromise<Array<RegistrationDetailedDto>> {
             return localVarFp.getAllRegistrationEntities(eventId, options).then((request) => request(axios, basePath));
         },
         /**
