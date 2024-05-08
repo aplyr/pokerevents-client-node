@@ -6,7 +6,7 @@ api/authentication-api.ts
 api/blind-level-entity-api.ts
 api/cache-api.ts
 api/day-entity-api.ts
-api/embed-api.ts
+api/embedded-api.ts
 api/events-api.ts
 api/festival-entity-api.ts
 api/import-api.ts

@@ -18,7 +18,7 @@ export * from './api/authentication-api';
 export * from './api/blind-level-entity-api';
 export * from './api/cache-api';
 export * from './api/day-entity-api';
-export * from './api/embed-api';
+export * from './api/embedded-api';
 export * from './api/events-api';
 export * from './api/festival-entity-api';
 export * from './api/import-api';
