@@ -22,22 +22,30 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { TourDto } from '../models';
+import { EventDetailsDto } from '../models';
 // @ts-ignore
-import { VenueDto } from '../models';
+import { LiveReportingDetailsDto } from '../models';
+// @ts-ignore
+import { ProblemDetails } from '../models';
+// @ts-ignore
+import { Result } from '../models';
 /**
- * RemoteApi - axios parameter creator
+ * EmbedApi - axios parameter creator
  * @export
  */
-export const RemoteApiAxiosParamCreator = function (configuration?: Configuration) {
+export const EmbedApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiRemoteToursGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Remote/tours`;
+        apiEmbedEventsEventIdGet: async (eventId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiEmbedEventsEventIdGet', 'eventId', eventId)
+            const localVarPath = `/api/Embed/events/{eventId}`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -65,12 +73,15 @@ export const RemoteApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
-         * @param {number} [page] 
+         * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiRemoteVenuesGet: async (page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Remote/venues`;
+        apiEmbedLivereportingsLiveReportingIdGet: async (liveReportingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'liveReportingId' is not null or undefined
+            assertParamExists('apiEmbedLivereportingsLiveReportingIdGet', 'liveReportingId', liveReportingId)
+            const localVarPath = `/api/Embed/livereportings/{liveReportingId}`
+                .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -84,10 +95,6 @@ export const RemoteApiAxiosParamCreator = function (configuration?: Configuratio
 
             // authentication bearer required
             await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
 
 
     
@@ -104,91 +111,94 @@ export const RemoteApiAxiosParamCreator = function (configuration?: Configuratio
 };
 
 /**
- * RemoteApi - functional programming interface
+ * EmbedApi - functional programming interface
  * @export
  */
-export const RemoteApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = RemoteApiAxiosParamCreator(configuration)
+export const EmbedApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = EmbedApiAxiosParamCreator(configuration)
     return {
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiRemoteToursGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TourDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiRemoteToursGet(options);
+        async apiEmbedEventsEventIdGet(eventId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventDetailsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbedEventsEventIdGet(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RemoteApi.apiRemoteToursGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EmbedApi.apiEmbedEventsEventIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {number} [page] 
+         * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiRemoteVenuesGet(page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VenueDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiRemoteVenuesGet(page, options);
+        async apiEmbedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveReportingDetailsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbedLivereportingsLiveReportingIdGet(liveReportingId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RemoteApi.apiRemoteVenuesGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EmbedApi.apiEmbedLivereportingsLiveReportingIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * RemoteApi - factory interface
+ * EmbedApi - factory interface
  * @export
  */
-export const RemoteApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = RemoteApiFp(configuration)
+export const EmbedApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = EmbedApiFp(configuration)
     return {
         /**
          * 
+         * @param {string} eventId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiRemoteToursGet(options?: any): AxiosPromise<Array<TourDto>> {
-            return localVarFp.apiRemoteToursGet(options).then((request) => request(axios, basePath));
+        apiEmbedEventsEventIdGet(eventId: string, options?: any): AxiosPromise<EventDetailsDto> {
+            return localVarFp.apiEmbedEventsEventIdGet(eventId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [page] 
+         * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiRemoteVenuesGet(page?: number, options?: any): AxiosPromise<Array<VenueDto>> {
-            return localVarFp.apiRemoteVenuesGet(page, options).then((request) => request(axios, basePath));
+        apiEmbedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: any): AxiosPromise<LiveReportingDetailsDto> {
+            return localVarFp.apiEmbedLivereportingsLiveReportingIdGet(liveReportingId, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * RemoteApi - object-oriented interface
+ * EmbedApi - object-oriented interface
  * @export
- * @class RemoteApi
+ * @class EmbedApi
  * @extends {BaseAPI}
  */
-export class RemoteApi extends BaseAPI {
+export class EmbedApi extends BaseAPI {
     /**
      * 
+     * @param {string} eventId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RemoteApi
+     * @memberof EmbedApi
      */
-    public apiRemoteToursGet(options?: RawAxiosRequestConfig) {
-        return RemoteApiFp(this.configuration).apiRemoteToursGet(options).then((request) => request(this.axios, this.basePath));
+    public apiEmbedEventsEventIdGet(eventId: string, options?: RawAxiosRequestConfig) {
+        return EmbedApiFp(this.configuration).apiEmbedEventsEventIdGet(eventId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} [page] 
+     * @param {string} liveReportingId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RemoteApi
+     * @memberof EmbedApi
      */
-    public apiRemoteVenuesGet(page?: number, options?: RawAxiosRequestConfig) {
-        return RemoteApiFp(this.configuration).apiRemoteVenuesGet(page, options).then((request) => request(this.axios, this.basePath));
+    public apiEmbedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: RawAxiosRequestConfig) {
+        return EmbedApiFp(this.configuration).apiEmbedLivereportingsLiveReportingIdGet(liveReportingId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

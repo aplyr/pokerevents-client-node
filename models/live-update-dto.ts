@@ -64,6 +64,12 @@ export interface LiveUpdateDto {
      * @type {string}
      * @memberof LiveUpdateDto
      */
+    'recordedAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LiveUpdateDto
+     */
     'createdByUserName'?: string | null;
     /**
      * 

@@ -21,20 +21,21 @@ import globalAxios from 'axios';
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+// @ts-ignore
+import { CacheStatisticsDto } from '../models';
 /**
- * ImportApi - axios parameter creator
+ * CacheApi - axios parameter creator
  * @export
  */
-export const ImportApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CacheApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {File} [playersFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportPlayersPost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Import/players`;
+        apiCacheStatisticsGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Cache/statistics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -42,26 +43,18 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
             // authentication bearer required
             await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
 
 
-            if (playersFile !== undefined) { 
-                localVarFormParams.append('playersFile', playersFile as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -72,62 +65,59 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
 };
 
 /**
- * ImportApi - functional programming interface
+ * CacheApi - functional programming interface
  * @export
  */
-export const ImportApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ImportApiAxiosParamCreator(configuration)
+export const CacheApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CacheApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {File} [playersFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportPlayersPost(playersFile, options);
+        async apiCacheStatisticsGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CacheStatisticsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiCacheStatisticsGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportPlayersPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CacheApi.apiCacheStatisticsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ImportApi - factory interface
+ * CacheApi - factory interface
  * @export
  */
-export const ImportApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ImportApiFp(configuration)
+export const CacheApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CacheApiFp(configuration)
     return {
         /**
          * 
-         * @param {File} [playersFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportPlayersPost(playersFile?: File, options?: any): AxiosPromise<void> {
-            return localVarFp.apiImportPlayersPost(playersFile, options).then((request) => request(axios, basePath));
+        apiCacheStatisticsGet(options?: any): AxiosPromise<CacheStatisticsDto> {
+            return localVarFp.apiCacheStatisticsGet(options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * ImportApi - object-oriented interface
+ * CacheApi - object-oriented interface
  * @export
- * @class ImportApi
+ * @class CacheApi
  * @extends {BaseAPI}
  */
-export class ImportApi extends BaseAPI {
+export class CacheApi extends BaseAPI {
     /**
      * 
-     * @param {File} [playersFile] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ImportApi
+     * @memberof CacheApi
      */
-    public apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig) {
-        return ImportApiFp(this.configuration).apiImportPlayersPost(playersFile, options).then((request) => request(this.axios, this.basePath));
+    public apiCacheStatisticsGet(options?: RawAxiosRequestConfig) {
+        return CacheApiFp(this.configuration).apiCacheStatisticsGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

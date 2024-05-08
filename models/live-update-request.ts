@@ -52,7 +52,7 @@ export interface LiveUpdateRequest {
      * @type {string}
      * @memberof LiveUpdateRequest
      */
-    'recordedAt'?: string;
+    'recordedAt'?: string | null;
     /**
      * 
      * @type {LiveUpdateState}

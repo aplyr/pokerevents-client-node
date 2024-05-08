@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import { PayoutDetailsDto } from '../models';
+// @ts-ignore
 import { PayoutEntity } from '../models';
 /**
  * PayoutEntityApi - axios parameter creator
@@ -49,6 +51,9 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
 
 
     
@@ -86,6 +91,9 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication bearer required
+            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -115,6 +123,9 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
 
             if (eventId !== undefined) {
                 localVarQueryParameter['eventId'] = eventId;
@@ -153,6 +164,9 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication bearer required
+            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -188,6 +202,9 @@ export const PayoutEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
 
 
     
@@ -243,7 +260,7 @@ export const PayoutEntityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPayoutEntities(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PayoutEntity>>> {
+        async getAllPayoutEntities(eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PayoutDetailsDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPayoutEntities(eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PayoutEntityApi.getAllPayoutEntities']?.[localVarOperationServerIndex]?.url;
@@ -308,7 +325,7 @@ export const PayoutEntityApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPayoutEntities(eventId?: string, options?: any): AxiosPromise<Array<PayoutEntity>> {
+        getAllPayoutEntities(eventId?: string, options?: any): AxiosPromise<Array<PayoutDetailsDto>> {
             return localVarFp.getAllPayoutEntities(eventId, options).then((request) => request(axios, basePath));
         },
         /**
