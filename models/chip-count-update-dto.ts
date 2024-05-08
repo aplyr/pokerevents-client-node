@@ -37,6 +37,12 @@ export interface ChipCountUpdateDto {
      * @type {number}
      * @memberof ChipCountUpdateDto
      */
+    'progress'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ChipCountUpdateDto
+     */
     'table'?: number | null;
     /**
      * 
