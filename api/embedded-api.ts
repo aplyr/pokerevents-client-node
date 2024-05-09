@@ -113,13 +113,17 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
          * 
          * @param {string} liveReportingId 
          * @param {number} [page] 
+         * @param {string} [sortOrder] 
+         * @param {string} [playerId] 
+         * @param {string} [blindLevelId] 
+         * @param {string} [tag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        livereportingsLiveReportingIdUpdatesGet: async (liveReportingId: string, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiEmbeddedLivereportingsLiveReportingIdUpdatesGet: async (liveReportingId: string, page?: number, sortOrder?: string, playerId?: string, blindLevelId?: string, tag?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'liveReportingId' is not null or undefined
-            assertParamExists('livereportingsLiveReportingIdUpdatesGet', 'liveReportingId', liveReportingId)
-            const localVarPath = `/livereportings/{liveReportingId}/updates`
+            assertParamExists('apiEmbeddedLivereportingsLiveReportingIdUpdatesGet', 'liveReportingId', liveReportingId)
+            const localVarPath = `/api/Embedded/livereportings/{liveReportingId}/updates`
                 .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -137,6 +141,22 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sortOrder'] = sortOrder;
+            }
+
+            if (playerId !== undefined) {
+                localVarQueryParameter['playerId'] = playerId;
+            }
+
+            if (blindLevelId !== undefined) {
+                localVarQueryParameter['blindLevelId'] = blindLevelId;
+            }
+
+            if (tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
             }
 
 
@@ -188,13 +208,17 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} liveReportingId 
          * @param {number} [page] 
+         * @param {string} [sortOrder] 
+         * @param {string} [playerId] 
+         * @param {string} [blindLevelId] 
+         * @param {string} [tag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async livereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LiveUpdateDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.livereportingsLiveReportingIdUpdatesGet(liveReportingId, page, options);
+        async apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, sortOrder?: string, playerId?: string, blindLevelId?: string, tag?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LiveUpdateDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId, page, sortOrder, playerId, blindLevelId, tag, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.livereportingsLiveReportingIdUpdatesGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedLivereportingsLiveReportingIdUpdatesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -229,11 +253,15 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
          * 
          * @param {string} liveReportingId 
          * @param {number} [page] 
+         * @param {string} [sortOrder] 
+         * @param {string} [playerId] 
+         * @param {string} [blindLevelId] 
+         * @param {string} [tag] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        livereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, options?: any): AxiosPromise<Array<LiveUpdateDto>> {
-            return localVarFp.livereportingsLiveReportingIdUpdatesGet(liveReportingId, page, options).then((request) => request(axios, basePath));
+        apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, sortOrder?: string, playerId?: string, blindLevelId?: string, tag?: string, options?: any): AxiosPromise<Array<LiveUpdateDto>> {
+            return localVarFp.apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId, page, sortOrder, playerId, blindLevelId, tag, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -271,12 +299,16 @@ export class EmbeddedApi extends BaseAPI {
      * 
      * @param {string} liveReportingId 
      * @param {number} [page] 
+     * @param {string} [sortOrder] 
+     * @param {string} [playerId] 
+     * @param {string} [blindLevelId] 
+     * @param {string} [tag] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmbeddedApi
      */
-    public livereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, options?: RawAxiosRequestConfig) {
-        return EmbeddedApiFp(this.configuration).livereportingsLiveReportingIdUpdatesGet(liveReportingId, page, options).then((request) => request(this.axios, this.basePath));
+    public apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId: string, page?: number, sortOrder?: string, playerId?: string, blindLevelId?: string, tag?: string, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedLivereportingsLiveReportingIdUpdatesGet(liveReportingId, page, sortOrder, playerId, blindLevelId, tag, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
