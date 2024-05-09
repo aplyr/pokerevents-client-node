@@ -24,7 +24,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ope
 // @ts-ignore
 import { EventDetailsDto } from '../models';
 // @ts-ignore
-import { LiveReportingDetailsDto } from '../models';
+import { LiveReportingMetadataDto } from '../models';
 // @ts-ignore
 import { LiveUpdateDto } from '../models';
 // @ts-ignore
@@ -79,10 +79,10 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedLivereportingsLiveReportingIdGet: async (liveReportingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiEmbeddedLivereportingsLiveReportingIdMetadataGet: async (liveReportingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'liveReportingId' is not null or undefined
-            assertParamExists('apiEmbeddedLivereportingsLiveReportingIdGet', 'liveReportingId', liveReportingId)
-            const localVarPath = `/api/Embedded/livereportings/{liveReportingId}`
+            assertParamExists('apiEmbeddedLivereportingsLiveReportingIdMetadataGet', 'liveReportingId', liveReportingId)
+            const localVarPath = `/api/Embedded/livereportings/{liveReportingId}/metadata`
                 .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -198,10 +198,10 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveReportingDetailsDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId, options);
+        async apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiveReportingMetadataDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedLivereportingsLiveReportingIdGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedLivereportingsLiveReportingIdMetadataGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -246,8 +246,8 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: any): AxiosPromise<LiveReportingDetailsDto> {
-            return localVarFp.apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId, options).then((request) => request(axios, basePath));
+        apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId: string, options?: any): AxiosPromise<LiveReportingMetadataDto> {
+            return localVarFp.apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -291,8 +291,8 @@ export class EmbeddedApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EmbeddedApi
      */
-    public apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId: string, options?: RawAxiosRequestConfig) {
-        return EmbeddedApiFp(this.configuration).apiEmbeddedLivereportingsLiveReportingIdGet(liveReportingId, options).then((request) => request(this.axios, this.basePath));
+    public apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId: string, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedLivereportingsLiveReportingIdMetadataGet(liveReportingId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

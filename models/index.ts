@@ -24,6 +24,7 @@ export * from './info-request';
 export * from './info-response';
 export * from './live-reporting-basic-details-request';
 export * from './live-reporting-details-dto';
+export * from './live-reporting-metadata-dto';
 export * from './live-reporting-statistics-dto';
 export * from './live-reporting-summary-dto';
 export * from './live-update-dto';

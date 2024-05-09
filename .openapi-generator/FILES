@@ -54,6 +54,7 @@ models/info-request.ts
 models/info-response.ts
 models/live-reporting-basic-details-request.ts
 models/live-reporting-details-dto.ts
+models/live-reporting-metadata-dto.ts
 models/live-reporting-statistics-dto.ts
 models/live-reporting-summary-dto.ts
 models/live-update-dto.ts

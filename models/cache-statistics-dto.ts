@@ -35,5 +35,11 @@ export interface CacheStatisticsDto {
      * @memberof CacheStatisticsDto
      */
     'liveReportingStatistics'?: MemoryCacheStatistics;
+    /**
+     * 
+     * @type {MemoryCacheStatistics}
+     * @memberof CacheStatisticsDto
+     */
+    'liveUpdatesStatistics'?: MemoryCacheStatistics;
 }
 
