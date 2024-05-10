@@ -50,7 +50,7 @@ export const RemoteApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -83,7 +83,7 @@ export const RemoteApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;

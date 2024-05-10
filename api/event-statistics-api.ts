@@ -52,7 +52,7 @@ export const EventStatisticsApiAxiosParamCreator = function (configuration?: Con
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     

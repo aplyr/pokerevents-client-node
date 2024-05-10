@@ -51,7 +51,7 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -90,7 +90,7 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -126,7 +126,7 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (pageSize !== undefined) {
                 localVarQueryParameter['pageSize'] = pageSize;
@@ -178,7 +178,7 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -217,7 +217,7 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     

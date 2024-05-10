@@ -46,7 +46,7 @@ export const SignalRApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     

@@ -51,7 +51,7 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -90,7 +90,7 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -123,7 +123,7 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (seasonId !== undefined) {
                 localVarQueryParameter['seasonId'] = seasonId;
@@ -163,7 +163,7 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -202,7 +202,7 @@ export const FestivalEntityApiAxiosParamCreator = function (configuration?: Conf
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     

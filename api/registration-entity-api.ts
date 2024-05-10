@@ -53,7 +53,7 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -92,7 +92,7 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -127,7 +127,7 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (eventId !== undefined) {
                 localVarQueryParameter['eventId'] = eventId;
@@ -167,7 +167,7 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -206,7 +206,7 @@ export const RegistrationEntityApiAxiosParamCreator = function (configuration?: 
             const localVarQueryParameter = {} as any;
 
             // authentication bearer required
-            await setApiKeyToObject(localVarQueryParameter, "Authorization", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
