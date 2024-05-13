@@ -67,6 +67,7 @@ models/model-error.ts
 models/payout-details-dto.ts
 models/payout-entity.ts
 models/player-entity.ts
+models/player-in-event-dto.ts
 models/player-summary-dto.ts
 models/poker-user-dto.ts
 models/problem-details.ts

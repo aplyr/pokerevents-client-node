@@ -37,6 +37,7 @@ export * from './model-error';
 export * from './payout-details-dto';
 export * from './payout-entity';
 export * from './player-entity';
+export * from './player-in-event-dto';
 export * from './player-summary-dto';
 export * from './poker-user-dto';
 export * from './problem-details';

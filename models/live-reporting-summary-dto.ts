@@ -85,7 +85,7 @@ export interface LiveReportingSummaryDto {
      * @type {number}
      * @memberof LiveReportingSummaryDto
      */
-    'updatesCount'?: number;
+    'liveUpdatesCount'?: number;
 }
 
 
