@@ -25,7 +25,19 @@ export interface ChipCountUpdateDto {
      * @type {string}
      * @memberof ChipCountUpdateDto
      */
-    'playerId'?: string;
+    'playerId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChipCountUpdateDto
+     */
+    'playerName'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChipCountUpdateDto
+     */
+    'playerCountryIso'?: string | null;
     /**
      * 
      * @type {number}

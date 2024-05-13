@@ -614,7 +614,7 @@ export const EventsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEventsEventIdPlayersPost(eventId: string, playerInEventDto?: PlayerInEventDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async apiEventsEventIdPlayersPost(eventId: string, playerInEventDto?: PlayerInEventDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerInEventDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiEventsEventIdPlayersPost(eventId, playerInEventDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EventsApi.apiEventsEventIdPlayersPost']?.[localVarOperationServerIndex]?.url;
@@ -759,7 +759,7 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEventsEventIdPlayersPost(eventId: string, playerInEventDto?: PlayerInEventDto, options?: any): AxiosPromise<void> {
+        apiEventsEventIdPlayersPost(eventId: string, playerInEventDto?: PlayerInEventDto, options?: any): AxiosPromise<Array<PlayerInEventDto>> {
             return localVarFp.apiEventsEventIdPlayersPost(eventId, playerInEventDto, options).then((request) => request(axios, basePath));
         },
         /**

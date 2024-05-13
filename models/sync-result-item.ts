@@ -17,32 +17,32 @@
 /**
  * 
  * @export
- * @interface RegistrationRequest
+ * @interface SyncResultItem
  */
-export interface RegistrationRequest {
+export interface SyncResultItem {
     /**
      * 
      * @type {string}
-     * @memberof RegistrationRequest
-     */
-    'playerId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RegistrationRequest
+     * @memberof SyncResultItem
      */
     'thmId'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof RegistrationRequest
+     * @type {boolean}
+     * @memberof SyncResultItem
      */
-    'name'?: string | null;
+    'success'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof RegistrationRequest
+     * @memberof SyncResultItem
      */
-    'countryIso'?: string | null;
+    'error'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SyncResultItem
+     */
+    'entityId'?: string | null;
 }
 

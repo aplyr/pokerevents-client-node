@@ -84,9 +84,9 @@ models/season-entity.ts
 models/section-dto.ts
 models/section-type.ts
 models/state-type.ts
+models/sync-result-item.ts
+models/sync-result.ts
 models/thm-sync-request.ts
-models/thm-sync-result-item.ts
-models/thm-sync-result.ts
 models/tour-dto.ts
 models/tour-entity.ts
 models/two-factor-request.ts

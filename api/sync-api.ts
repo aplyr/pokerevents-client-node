@@ -22,9 +22,9 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { ThmSyncRequest } from '../models';
+import { SyncResult } from '../models';
 // @ts-ignore
-import { ThmSyncResult } from '../models';
+import { ThmSyncRequest } from '../models';
 /**
  * SyncApi - axios parameter creator
  * @export
@@ -248,7 +248,7 @@ export const SyncApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSyncFestivalsFestivalIdSyncEventsPost(festivalId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ThmSyncResult>> {
+        async apiSyncFestivalsFestivalIdSyncEventsPost(festivalId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SyncResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiSyncFestivalsFestivalIdSyncEventsPost(festivalId, refresh, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SyncApi.apiSyncFestivalsFestivalIdSyncEventsPost']?.[localVarOperationServerIndex]?.url;
@@ -261,7 +261,7 @@ export const SyncApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ThmSyncResult>> {
+        async apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SyncResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId, refresh, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SyncApi.apiSyncSeasonsSeasonIdSyncFestivalsPost']?.[localVarOperationServerIndex]?.url;
@@ -274,7 +274,7 @@ export const SyncApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSyncSyncToursPost(refresh?: boolean, thmSyncRequest?: ThmSyncRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ThmSyncResult>> {
+        async apiSyncSyncToursPost(refresh?: boolean, thmSyncRequest?: ThmSyncRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SyncResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiSyncSyncToursPost(refresh, thmSyncRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SyncApi.apiSyncSyncToursPost']?.[localVarOperationServerIndex]?.url;
@@ -286,7 +286,7 @@ export const SyncApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSyncSyncVenuesPost(thmSyncRequest?: ThmSyncRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ThmSyncResult>> {
+        async apiSyncSyncVenuesPost(thmSyncRequest?: ThmSyncRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SyncResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiSyncSyncVenuesPost(thmSyncRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SyncApi.apiSyncSyncVenuesPost']?.[localVarOperationServerIndex]?.url;
@@ -299,7 +299,7 @@ export const SyncApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSyncToursTourIdSyncSeasonsPost(tourId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ThmSyncResult>> {
+        async apiSyncToursTourIdSyncSeasonsPost(tourId: string, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SyncResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiSyncToursTourIdSyncSeasonsPost(tourId, refresh, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SyncApi.apiSyncToursTourIdSyncSeasonsPost']?.[localVarOperationServerIndex]?.url;
@@ -322,7 +322,7 @@ export const SyncApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSyncFestivalsFestivalIdSyncEventsPost(festivalId: string, refresh?: boolean, options?: any): AxiosPromise<ThmSyncResult> {
+        apiSyncFestivalsFestivalIdSyncEventsPost(festivalId: string, refresh?: boolean, options?: any): AxiosPromise<SyncResult> {
             return localVarFp.apiSyncFestivalsFestivalIdSyncEventsPost(festivalId, refresh, options).then((request) => request(axios, basePath));
         },
         /**
@@ -332,7 +332,7 @@ export const SyncApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId: string, refresh?: boolean, options?: any): AxiosPromise<ThmSyncResult> {
+        apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId: string, refresh?: boolean, options?: any): AxiosPromise<SyncResult> {
             return localVarFp.apiSyncSeasonsSeasonIdSyncFestivalsPost(seasonId, refresh, options).then((request) => request(axios, basePath));
         },
         /**
@@ -342,7 +342,7 @@ export const SyncApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSyncSyncToursPost(refresh?: boolean, thmSyncRequest?: ThmSyncRequest, options?: any): AxiosPromise<ThmSyncResult> {
+        apiSyncSyncToursPost(refresh?: boolean, thmSyncRequest?: ThmSyncRequest, options?: any): AxiosPromise<SyncResult> {
             return localVarFp.apiSyncSyncToursPost(refresh, thmSyncRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -351,7 +351,7 @@ export const SyncApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSyncSyncVenuesPost(thmSyncRequest?: ThmSyncRequest, options?: any): AxiosPromise<ThmSyncResult> {
+        apiSyncSyncVenuesPost(thmSyncRequest?: ThmSyncRequest, options?: any): AxiosPromise<SyncResult> {
             return localVarFp.apiSyncSyncVenuesPost(thmSyncRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -361,7 +361,7 @@ export const SyncApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSyncToursTourIdSyncSeasonsPost(tourId: string, refresh?: boolean, options?: any): AxiosPromise<ThmSyncResult> {
+        apiSyncToursTourIdSyncSeasonsPost(tourId: string, refresh?: boolean, options?: any): AxiosPromise<SyncResult> {
             return localVarFp.apiSyncToursTourIdSyncSeasonsPost(tourId, refresh, options).then((request) => request(axios, basePath));
         },
     };
