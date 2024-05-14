@@ -15,7 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ErrorTypes } from './error-types';
+import { ExtensionStatus } from './extension-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import { Metadata } from './metadata';
+// May contain unused imports in some cases
+// @ts-ignore
+import { VersionInfo } from './version-info';
 
 /**
  * 
@@ -25,41 +31,111 @@ import { ErrorTypes } from './error-types';
 export interface Result {
     /**
      * 
-     * @type {any}
+     * @type {string}
      * @memberof Result
      */
-    'value'?: any | null;
+    'raw'?: string | null;
     /**
      * 
-     * @type {boolean}
+     * @type {number}
      * @memberof Result
      */
-    'isSuccess'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Result
-     */
-    'isFailure'?: boolean;
+    'httpStatusCode'?: number;
     /**
      * 
      * @type {string}
      * @memberof Result
      */
-    'errorMessage'?: string | null;
+    'fileId'?: string | null;
     /**
      * 
-     * @type {ErrorTypes}
+     * @type {string}
      * @memberof Result
      */
-    'errorCode'?: ErrorTypes;
+    'name'?: string | null;
     /**
      * 
-     * @type {Array<Error>}
+     * @type {number}
      * @memberof Result
      */
-    'errors'?: Array<Error> | null;
+    'size'?: number;
+    /**
+     * 
+     * @type {VersionInfo}
+     * @memberof Result
+     */
+    'versionInfo'?: VersionInfo;
+    /**
+     * 
+     * @type {string}
+     * @memberof Result
+     */
+    'filePath'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Result
+     */
+    'url'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Result
+     */
+    'fileType'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof Result
+     */
+    'height'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Result
+     */
+    'width'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Result
+     */
+    'thumbnailUrl'?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Result
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * 
+     * @type {any}
+     * @memberof Result
+     */
+    'aiTags'?: any | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Result
+     */
+    'isPrivateFile'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Result
+     */
+    'customCoordinates'?: string | null;
+    /**
+     * 
+     * @type {Metadata}
+     * @memberof Result
+     */
+    'metadata'?: Metadata;
+    /**
+     * 
+     * @type {ExtensionStatus}
+     * @memberof Result
+     */
+    'extensionStatus'?: ExtensionStatus;
 }
-
-
 

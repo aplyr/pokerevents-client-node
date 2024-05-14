@@ -34,13 +34,13 @@ export interface PlayerInEventDto {
      * @type {string}
      * @memberof PlayerInEventDto
      */
-    'registrationId'?: string;
+    'registrationId'?: string | null;
     /**
      * 
      * @type {string}
      * @memberof PlayerInEventDto
      */
-    'playerId'?: string;
+    'playerId'?: string | null;
     /**
      * 
      * @type {PlayerSummaryDto}

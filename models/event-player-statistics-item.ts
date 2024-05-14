@@ -34,6 +34,12 @@ export interface EventPlayerStatisticsItem {
     'player'?: PlayerSummaryDto;
     /**
      * 
+     * @type {string}
+     * @memberof EventPlayerStatisticsItem
+     */
+    'registrationId'?: string;
+    /**
+     * 
      * @type {Array<ChipCountDto>}
      * @memberof EventPlayerStatisticsItem
      */

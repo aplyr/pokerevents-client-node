@@ -10,6 +10,7 @@ api/embedded-api.ts
 api/event-statistics-api.ts
 api/events-api.ts
 api/festival-entity-api.ts
+api/imagekit-api.ts
 api/live-reportings-api.ts
 api/live-updates-api.ts
 api/payout-entity-api.ts
@@ -29,6 +30,7 @@ git_push.sh
 index.ts
 models/access-token-response.ts
 models/actual-prize-dto.ts
+models/auth-param-response.ts
 models/blind-level-dto.ts
 models/blind-level-entity.ts
 models/blind-level-type.ts
@@ -37,7 +39,6 @@ models/chip-count-dto.ts
 models/chip-count-update-dto.ts
 models/chip-information-source.ts
 models/day-entity.ts
-models/error-types.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
 models/event-meta-dto.ts
@@ -45,6 +46,7 @@ models/event-player-statistics-item.ts
 models/event-player-statistics.ts
 models/event-statistics-dto.ts
 models/event-summary-dto.ts
+models/extension-status.ts
 models/festival-details-dto.ts
 models/festival-entity.ts
 models/forgot-password-request.ts
@@ -63,7 +65,7 @@ models/live-update-state.ts
 models/live-update-type.ts
 models/login-request.ts
 models/memory-cache-statistics.ts
-models/model-error.ts
+models/metadata.ts
 models/payout-details-dto.ts
 models/payout-entity.ts
 models/player-entity.ts
@@ -94,6 +96,7 @@ models/two-factor-response.ts
 models/venue-details-dto.ts
 models/venue-dto.ts
 models/venue-entity.ts
+models/version-info.ts
 package.json
 tsconfig.esm.json
 tsconfig.json
