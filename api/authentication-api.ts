@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ope
 // @ts-ignore
 import { AccessTokenResponse } from '../models';
 // @ts-ignore
+import { EditorDto } from '../models';
+// @ts-ignore
 import { ForgotPasswordRequest } from '../models';
 // @ts-ignore
 import { HttpValidationProblemDetails } from '../models';
@@ -460,6 +462,44 @@ export const AuthenticationApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
+         * @param {EditorDto} editorDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthenticationSessionEditorDetailsPut: async (editorDto: EditorDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'editorDto' is not null or undefined
+            assertParamExists('apiAuthenticationSessionEditorDetailsPut', 'editorDto', editorDto)
+            const localVarPath = `/api/Authentication/session/editor-details`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(editorDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -682,6 +722,18 @@ export const AuthenticationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {EditorDto} editorDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthenticationSessionEditorDetailsPut(editorDto: EditorDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthenticationSessionEditorDetailsPut(editorDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthenticationApi.apiAuthenticationSessionEditorDetailsPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -814,6 +866,15 @@ export const AuthenticationApiFactory = function (configuration?: Configuration,
          */
         apiAuthenticationResetPasswordPost(resetPasswordRequest?: ResetPasswordRequest, options?: any): AxiosPromise<void> {
             return localVarFp.apiAuthenticationResetPasswordPost(resetPasswordRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {EditorDto} editorDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthenticationSessionEditorDetailsPut(editorDto: EditorDto, options?: any): AxiosPromise<void> {
+            return localVarFp.apiAuthenticationSessionEditorDetailsPut(editorDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -964,6 +1025,17 @@ export class AuthenticationApi extends BaseAPI {
      */
     public apiAuthenticationResetPasswordPost(resetPasswordRequest?: ResetPasswordRequest, options?: RawAxiosRequestConfig) {
         return AuthenticationApiFp(this.configuration).apiAuthenticationResetPasswordPost(resetPasswordRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {EditorDto} editorDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApi
+     */
+    public apiAuthenticationSessionEditorDetailsPut(editorDto: EditorDto, options?: RawAxiosRequestConfig) {
+        return AuthenticationApiFp(this.configuration).apiAuthenticationSessionEditorDetailsPut(editorDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

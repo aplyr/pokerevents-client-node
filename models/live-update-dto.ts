@@ -18,6 +18,9 @@
 import { BlindLevelDto } from './blind-level-dto';
 // May contain unused imports in some cases
 // @ts-ignore
+import { EditorDto } from './editor-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { LiveUpdateState } from './live-update-state';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -67,16 +70,16 @@ export interface LiveUpdateDto {
     'recordedAt'?: string;
     /**
      * 
-     * @type {string}
+     * @type {EditorDto}
      * @memberof LiveUpdateDto
      */
-    'createdByUserName'?: string | null;
+    'createdBy'?: EditorDto;
     /**
      * 
-     * @type {string}
+     * @type {EditorDto}
      * @memberof LiveUpdateDto
      */
-    'modifiedByUserName'?: string | null;
+    'modifiedBy'?: EditorDto;
     /**
      * 
      * @type {string}

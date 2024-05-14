@@ -9,6 +9,7 @@ export * from './chip-count-dto';
 export * from './chip-count-update-dto';
 export * from './chip-information-source';
 export * from './day-entity';
+export * from './editor-dto';
 export * from './embedded-player-dto';
 export * from './event-basic-details-request';
 export * from './event-details-dto';

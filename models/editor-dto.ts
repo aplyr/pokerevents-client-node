@@ -17,38 +17,26 @@
 /**
  * 
  * @export
- * @interface EmbeddedPlayerDto
+ * @interface EditorDto
  */
-export interface EmbeddedPlayerDto {
+export interface EditorDto {
     /**
      * 
      * @type {string}
-     * @memberof EmbeddedPlayerDto
+     * @memberof EditorDto
      */
-    'eventId'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EmbeddedPlayerDto
-     */
-    'finalVersion'?: boolean;
+    'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof EmbeddedPlayerDto
+     * @memberof EditorDto
      */
-    'embedCode'?: string | null;
+    'displayName'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof EmbeddedPlayerDto
+     * @memberof EditorDto
      */
-    'embedScriptUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EmbeddedPlayerDto
-     */
-    'embedStyleUrl'?: string | null;
+    'avatarUrl'?: string | null;
 }
 

@@ -28,6 +28,18 @@ export interface PokerUserDto {
     'email'?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof PokerUserDto
+     */
+    'displayName'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PokerUserDto
+     */
+    'avatarUrl'?: string | null;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof PokerUserDto
      */
