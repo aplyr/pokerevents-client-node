@@ -31,6 +31,12 @@ import { PlayerSummaryDto } from './player-summary-dto';
 export interface LiveReportingMetadataDto {
     /**
      * 
+     * @type {string}
+     * @memberof LiveReportingMetadataDto
+     */
+    'id'?: string;
+    /**
+     * 
      * @type {LiveReportingStatisticsDto}
      * @memberof LiveReportingMetadataDto
      */

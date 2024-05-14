@@ -39,6 +39,7 @@ models/chip-count-dto.ts
 models/chip-count-update-dto.ts
 models/chip-information-source.ts
 models/day-entity.ts
+models/embedded-player-dto.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
 models/event-meta-dto.ts
