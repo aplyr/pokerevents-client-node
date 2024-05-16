@@ -13,36 +13,39 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { Root } from './root';
 
 /**
  * 
  * @export
- * @interface DayEntity
+ * @interface ResultList
  */
-export interface DayEntity {
+export interface ResultList {
     /**
      * 
      * @type {string}
-     * @memberof DayEntity
+     * @memberof ResultList
      */
-    'id'?: string;
+    'raw'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResultList
+     */
+    'httpStatusCode'?: number;
     /**
      * 
      * @type {string}
-     * @memberof DayEntity
+     * @memberof ResultList
      */
-    'eventId'?: string;
+    'help'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof DayEntity
+     * @type {Array<Root>}
+     * @memberof ResultList
      */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'date'?: string;
+    'fileList'?: Array<Root> | null;
 }
 

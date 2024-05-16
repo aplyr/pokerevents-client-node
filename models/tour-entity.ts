@@ -31,7 +31,7 @@ export interface TourEntity {
      * @type {string}
      * @memberof TourEntity
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}

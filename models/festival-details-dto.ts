@@ -25,19 +25,19 @@ export interface FestivalDetailsDto {
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'seasonId'?: string;
+    'seasonId': string;
     /**
      * 
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}
@@ -79,6 +79,6 @@ export interface FestivalDetailsDto {
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'seasonName'?: string | null;
+    'seasonName': string;
 }
 

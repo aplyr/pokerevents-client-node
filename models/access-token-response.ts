@@ -31,18 +31,18 @@ export interface AccessTokenResponse {
      * @type {string}
      * @memberof AccessTokenResponse
      */
-    'accessToken'?: string | null;
+    'accessToken': string;
     /**
      * 
      * @type {number}
      * @memberof AccessTokenResponse
      */
-    'expiresIn'?: number;
+    'expiresIn': number;
     /**
      * 
      * @type {string}
      * @memberof AccessTokenResponse
      */
-    'refreshToken'?: string | null;
+    'refreshToken': string;
 }
 

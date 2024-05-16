@@ -31,7 +31,7 @@ export interface VenueDetailsDto {
      * @type {string}
      * @memberof VenueDetailsDto
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}
@@ -91,7 +91,7 @@ export interface VenueDetailsDto {
      * @type {Array<string>}
      * @memberof VenueDetailsDto
      */
-    'photos'?: Array<string> | null;
+    'photos': Array<string>;
     /**
      * 
      * @type {string}

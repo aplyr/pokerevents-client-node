@@ -34,7 +34,7 @@ export interface LiveReportingBasicDetailsRequest {
      * @type {string}
      * @memberof LiveReportingBasicDetailsRequest
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}

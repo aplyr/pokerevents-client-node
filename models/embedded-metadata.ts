@@ -17,32 +17,32 @@
 /**
  * 
  * @export
- * @interface DayEntity
+ * @interface EmbeddedMetadata
  */
-export interface DayEntity {
+export interface EmbeddedMetadata {
+    /**
+     * 
+     * @type {number}
+     * @memberof EmbeddedMetadata
+     */
+    'xResolution'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmbeddedMetadata
+     */
+    'yResolution'?: number;
     /**
      * 
      * @type {string}
-     * @memberof DayEntity
+     * @memberof EmbeddedMetadata
      */
-    'id'?: string;
+    'dateCreated'?: string;
     /**
      * 
      * @type {string}
-     * @memberof DayEntity
+     * @memberof EmbeddedMetadata
      */
-    'eventId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'date'?: string;
+    'dateTimeCreated'?: string;
 }
 

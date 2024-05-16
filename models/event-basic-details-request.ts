@@ -28,7 +28,7 @@ export interface EventBasicDetailsRequest {
      * @type {string}
      * @memberof EventBasicDetailsRequest
      */
-    'festivalId'?: string;
+    'festivalId': string;
     /**
      * 
      * @type {string}
@@ -40,19 +40,19 @@ export interface EventBasicDetailsRequest {
      * @type {string}
      * @memberof EventBasicDetailsRequest
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {number}
      * @memberof EventBasicDetailsRequest
      */
-    'priority'?: number;
+    'priority': number;
     /**
      * 
      * @type {StateType}
      * @memberof EventBasicDetailsRequest
      */
-    'state'?: StateType;
+    'state': StateType;
     /**
      * 
      * @type {string}
@@ -70,13 +70,13 @@ export interface EventBasicDetailsRequest {
      * @type {string}
      * @memberof EventBasicDetailsRequest
      */
-    'fromDate'?: string;
+    'fromDate': string;
     /**
      * 
      * @type {string}
      * @memberof EventBasicDetailsRequest
      */
-    'toDate'?: string;
+    'toDate': string;
     /**
      * 
      * @type {string}

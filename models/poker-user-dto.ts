@@ -25,7 +25,7 @@ export interface PokerUserDto {
      * @type {string}
      * @memberof PokerUserDto
      */
-    'email'?: string | null;
+    'email': string;
     /**
      * 
      * @type {string}
@@ -43,6 +43,6 @@ export interface PokerUserDto {
      * @type {Array<string>}
      * @memberof PokerUserDto
      */
-    'roles'?: Array<string> | null;
+    'roles': Array<string>;
 }
 

@@ -31,18 +31,18 @@ export interface EventPlayerStatisticsItem {
      * @type {PlayerSummaryDto}
      * @memberof EventPlayerStatisticsItem
      */
-    'player'?: PlayerSummaryDto;
+    'player': PlayerSummaryDto;
     /**
      * 
      * @type {string}
      * @memberof EventPlayerStatisticsItem
      */
-    'registrationId'?: string;
+    'registrationId': string;
     /**
      * 
      * @type {Array<ChipCountDto>}
      * @memberof EventPlayerStatisticsItem
      */
-    'chipCountUpdates'?: Array<ChipCountDto> | null;
+    'chipCountUpdates': Array<ChipCountDto>;
 }
 

@@ -73,19 +73,19 @@ export interface LiveUpdateDto {
      * @type {EditorDto}
      * @memberof LiveUpdateDto
      */
-    'createdBy'?: EditorDto;
+    'createdBy': EditorDto;
     /**
      * 
      * @type {EditorDto}
      * @memberof LiveUpdateDto
      */
-    'modifiedBy'?: EditorDto;
+    'modifiedBy': EditorDto;
     /**
      * 
      * @type {string}
      * @memberof LiveUpdateDto
      */
-    'title'?: string | null;
+    'title': string;
     /**
      * 
      * @type {LiveUpdateState}

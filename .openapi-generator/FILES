@@ -40,6 +40,7 @@ models/chip-count-update-dto.ts
 models/chip-information-source.ts
 models/day-entity.ts
 models/editor-dto.ts
+models/embedded-metadata.ts
 models/embedded-player-dto.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
@@ -49,9 +50,12 @@ models/event-player-statistics.ts
 models/event-statistics-dto.ts
 models/event-summary-dto.ts
 models/extension-status.ts
+models/extension.ts
 models/festival-details-dto.ts
 models/festival-entity.ts
+models/file-update-request.ts
 models/forgot-password-request.ts
+models/get-file-list-request.ts
 models/http-validation-problem-details.ts
 models/index.ts
 models/info-request.ts
@@ -83,7 +87,9 @@ models/registration-request.ts
 models/registration-statistics-dto.ts
 models/resend-confirmation-email-request.ts
 models/reset-password-request.ts
+models/result-list.ts
 models/result.ts
+models/root.ts
 models/season-entity.ts
 models/section-dto.ts
 models/section-type.ts

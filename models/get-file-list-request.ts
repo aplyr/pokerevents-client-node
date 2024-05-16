@@ -17,68 +17,62 @@
 /**
  * 
  * @export
- * @interface FestivalEntity
+ * @interface GetFileListRequest
  */
-export interface FestivalEntity {
+export interface GetFileListRequest {
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'id'?: string;
+    'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'seasonId'?: string;
+    'type'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'venueId'?: string;
+    'sort'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'name': string;
+    'path'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'description'?: string | null;
+    'searchQuery'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof GetFileListRequest
      */
-    'fromDate'?: string;
+    'fileType'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @type {number}
+     * @memberof GetFileListRequest
      */
-    'toDate'?: string;
+    'limit'?: number;
     /**
      * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @type {number}
+     * @memberof GetFileListRequest
      */
-    'countryIso'?: string | null;
+    'skip'?: number;
     /**
      * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @type {Array<string>}
+     * @memberof GetFileListRequest
      */
-    'websiteUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'thmId'?: string | null;
+    'tags'?: Array<string> | null;
 }
 

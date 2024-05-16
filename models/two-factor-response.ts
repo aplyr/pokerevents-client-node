@@ -25,13 +25,13 @@ export interface TwoFactorResponse {
      * @type {string}
      * @memberof TwoFactorResponse
      */
-    'sharedKey'?: string | null;
+    'sharedKey': string;
     /**
      * 
      * @type {number}
      * @memberof TwoFactorResponse
      */
-    'recoveryCodesLeft'?: number;
+    'recoveryCodesLeft': number;
     /**
      * 
      * @type {Array<string>}
@@ -43,12 +43,12 @@ export interface TwoFactorResponse {
      * @type {boolean}
      * @memberof TwoFactorResponse
      */
-    'isTwoFactorEnabled'?: boolean;
+    'isTwoFactorEnabled': boolean;
     /**
      * 
      * @type {boolean}
      * @memberof TwoFactorResponse
      */
-    'isMachineRemembered'?: boolean;
+    'isMachineRemembered': boolean;
 }
 

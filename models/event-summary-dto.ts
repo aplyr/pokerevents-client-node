@@ -28,13 +28,13 @@ export interface EventSummaryDto {
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}
@@ -46,7 +46,7 @@ export interface EventSummaryDto {
      * @type {StateType}
      * @memberof EventSummaryDto
      */
-    'state'?: StateType;
+    'state': StateType;
     /**
      * 
      * @type {number}
@@ -58,13 +58,13 @@ export interface EventSummaryDto {
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'fromDate'?: string;
+    'fromDate': string;
     /**
      * 
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'toDate'?: string;
+    'toDate': string;
     /**
      * 
      * @type {string}
@@ -76,7 +76,7 @@ export interface EventSummaryDto {
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'festivalName'?: string | null;
+    'festivalName': string;
     /**
      * 
      * @type {string}

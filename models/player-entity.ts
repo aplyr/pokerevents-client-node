@@ -31,7 +31,7 @@ export interface PlayerEntity {
      * @type {string}
      * @memberof PlayerEntity
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}

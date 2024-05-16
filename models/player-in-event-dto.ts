@@ -46,7 +46,7 @@ export interface PlayerInEventDto {
      * @type {PlayerSummaryDto}
      * @memberof PlayerInEventDto
      */
-    'player'?: PlayerSummaryDto;
+    'player': PlayerSummaryDto;
     /**
      * 
      * @type {number}

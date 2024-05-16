@@ -25,7 +25,7 @@ export interface EmbeddedPlayerDto {
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'eventId'?: string;
+    'eventId': string;
     /**
      * 
      * @type {boolean}
@@ -37,18 +37,18 @@ export interface EmbeddedPlayerDto {
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'embedCode'?: string | null;
+    'embedCode': string;
     /**
      * 
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'embedScriptUrl'?: string | null;
+    'embedScriptUrl': string;
     /**
      * 
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'embedStyleUrl'?: string | null;
+    'embedStyleUrl': string;
 }
 

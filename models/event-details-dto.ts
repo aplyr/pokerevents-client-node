@@ -55,13 +55,13 @@ export interface EventDetailsDto {
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'festivalId'?: string;
+    'festivalId': string;
     /**
      * 
      * @type {string}
@@ -73,7 +73,7 @@ export interface EventDetailsDto {
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'name'?: string | null;
+    'name': string;
     /**
      * 
      * @type {string}
@@ -85,7 +85,7 @@ export interface EventDetailsDto {
      * @type {StateType}
      * @memberof EventDetailsDto
      */
-    'state'?: StateType;
+    'state': StateType;
     /**
      * 
      * @type {string}
@@ -103,31 +103,31 @@ export interface EventDetailsDto {
      * @type {number}
      * @memberof EventDetailsDto
      */
-    'priority'?: number;
+    'priority': number;
     /**
      * 
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'fromDate'?: string;
+    'fromDate': string;
     /**
      * 
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'toDate'?: string;
+    'toDate': string;
     /**
      * 
      * @type {EventMetaDto}
      * @memberof EventDetailsDto
      */
-    'meta'?: EventMetaDto;
+    'meta': EventMetaDto;
     /**
      * 
      * @type {EventStatisticsDto}
      * @memberof EventDetailsDto
      */
-    'statistics'?: EventStatisticsDto;
+    'statistics': EventStatisticsDto;
     /**
      * 
      * @type {VenueDetailsDto}
@@ -139,43 +139,43 @@ export interface EventDetailsDto {
      * @type {Array<string>}
      * @memberof EventDetailsDto
      */
-    'photos'?: Array<string> | null;
+    'photos': Array<string>;
     /**
      * 
      * @type {FestivalDetailsDto}
      * @memberof EventDetailsDto
      */
-    'festival'?: FestivalDetailsDto;
+    'festival': FestivalDetailsDto;
     /**
      * 
      * @type {Array<DayEntity>}
      * @memberof EventDetailsDto
      */
-    'days'?: Array<DayEntity> | null;
+    'days': Array<DayEntity>;
     /**
      * 
      * @type {Array<BlindLevelDto>}
      * @memberof EventDetailsDto
      */
-    'blindLevels'?: Array<BlindLevelDto> | null;
+    'blindLevels': Array<BlindLevelDto>;
     /**
      * 
      * @type {Array<PayoutDetailsDto>}
      * @memberof EventDetailsDto
      */
-    'payouts'?: Array<PayoutDetailsDto> | null;
+    'payouts': Array<PayoutDetailsDto>;
     /**
      * 
      * @type {Array<RegistrationDetailedDto>}
      * @memberof EventDetailsDto
      */
-    'registrations'?: Array<RegistrationDetailedDto> | null;
+    'registrations': Array<RegistrationDetailedDto>;
     /**
      * 
      * @type {Array<LiveReportingSummaryDto>}
      * @memberof EventDetailsDto
      */
-    'liveReportings'?: Array<LiveReportingSummaryDto> | null;
+    'liveReportings': Array<LiveReportingSummaryDto>;
 }
 
 

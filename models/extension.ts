@@ -17,32 +17,14 @@
 /**
  * 
  * @export
- * @interface DayEntity
+ * @interface Extension
  */
-export interface DayEntity {
+export interface Extension {
     /**
      * 
      * @type {string}
-     * @memberof DayEntity
+     * @memberof Extension
      */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'eventId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DayEntity
-     */
-    'date'?: string;
+    'name'?: string | null;
 }
 

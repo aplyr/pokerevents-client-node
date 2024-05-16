@@ -25,12 +25,12 @@ export interface InfoResponse {
      * @type {string}
      * @memberof InfoResponse
      */
-    'email'?: string | null;
+    'email': string;
     /**
      * 
      * @type {boolean}
      * @memberof InfoResponse
      */
-    'isEmailConfirmed'?: boolean;
+    'isEmailConfirmed': boolean;
 }
 

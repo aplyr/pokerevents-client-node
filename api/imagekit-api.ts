@@ -23,6 +23,14 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import { AuthParamResponse } from '../models';
+// @ts-ignore
+import { FileUpdateRequest } from '../models';
+// @ts-ignore
+import { GetFileListRequest } from '../models';
+// @ts-ignore
+import { Result } from '../models';
+// @ts-ignore
+import { ResultList } from '../models';
 /**
  * ImagekitApi - axios parameter creator
  * @export
@@ -61,6 +69,220 @@ export const ImagekitApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitEventsEventIdImagesGet: async (eventId: string, pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiImageKitEventsEventIdImagesGet', 'eventId', eventId)
+            const localVarPath = `/api/ImageKit/events/{eventId}/images`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {GetFileListRequest} getFileListRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitFindPost: async (getFileListRequest: GetFileListRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'getFileListRequest' is not null or undefined
+            assertParamExists('apiImageKitFindPost', 'getFileListRequest', getFileListRequest)
+            const localVarPath = `/api/ImageKit/find`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(getFileListRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitLivereportingLiveReportingIdImagesGet: async (liveReportingId: string, pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'liveReportingId' is not null or undefined
+            assertParamExists('apiImageKitLivereportingLiveReportingIdImagesGet', 'liveReportingId', liveReportingId)
+            const localVarPath = `/api/ImageKit/livereporting/{liveReportingId}/images`
+                .replace(`{${"liveReportingId"}}`, encodeURIComponent(String(liveReportingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} playerId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitPlayersPlayerIdImagesGet: async (playerId: string, pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'playerId' is not null or undefined
+            assertParamExists('apiImageKitPlayersPlayerIdImagesGet', 'playerId', playerId)
+            const localVarPath = `/api/ImageKit/players/{playerId}/images`
+                .replace(`{${"playerId"}}`, encodeURIComponent(String(playerId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitUpdateImagePut: async (fileUpdateRequest: FileUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fileUpdateRequest' is not null or undefined
+            assertParamExists('apiImageKitUpdateImagePut', 'fileUpdateRequest', fileUpdateRequest)
+            const localVarPath = `/api/ImageKit/update-image`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(fileUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -82,6 +304,72 @@ export const ImagekitApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitAuthGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImageKitEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResultList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitEventsEventIdImagesGet(eventId, pageSize, page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitEventsEventIdImagesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {GetFileListRequest} getFileListRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImageKitFindPost(getFileListRequest: GetFileListRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResultList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitFindPost(getFileListRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitFindPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResultList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId, pageSize, page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitLivereportingLiveReportingIdImagesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} playerId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImageKitPlayersPlayerIdImagesGet(playerId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResultList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitPlayersPlayerIdImagesGet(playerId, pageSize, page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitPlayersPlayerIdImagesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Result>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitUpdateImagePut(fileUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitUpdateImagePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -99,6 +387,57 @@ export const ImagekitApiFactory = function (configuration?: Configuration, baseP
          */
         apiImageKitAuthGet(options?: any): AxiosPromise<AuthParamResponse> {
             return localVarFp.apiImageKitAuthGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: any): AxiosPromise<ResultList> {
+            return localVarFp.apiImageKitEventsEventIdImagesGet(eventId, pageSize, page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {GetFileListRequest} getFileListRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitFindPost(getFileListRequest: GetFileListRequest, options?: any): AxiosPromise<ResultList> {
+            return localVarFp.apiImageKitFindPost(getFileListRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} liveReportingId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId: string, pageSize?: number, page?: number, options?: any): AxiosPromise<ResultList> {
+            return localVarFp.apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId, pageSize, page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} playerId 
+         * @param {number} [pageSize] 
+         * @param {number} [page] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitPlayersPlayerIdImagesGet(playerId: string, pageSize?: number, page?: number, options?: any): AxiosPromise<ResultList> {
+            return localVarFp.apiImageKitPlayersPlayerIdImagesGet(playerId, pageSize, page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: any): AxiosPromise<Result> {
+            return localVarFp.apiImageKitUpdateImagePut(fileUpdateRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -118,6 +457,67 @@ export class ImagekitApi extends BaseAPI {
      */
     public apiImageKitAuthGet(options?: RawAxiosRequestConfig) {
         return ImagekitApiFp(this.configuration).apiImageKitAuthGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {number} [pageSize] 
+     * @param {number} [page] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImagekitApi
+     */
+    public apiImageKitEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitEventsEventIdImagesGet(eventId, pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {GetFileListRequest} getFileListRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImagekitApi
+     */
+    public apiImageKitFindPost(getFileListRequest: GetFileListRequest, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitFindPost(getFileListRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} liveReportingId 
+     * @param {number} [pageSize] 
+     * @param {number} [page] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImagekitApi
+     */
+    public apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitLivereportingLiveReportingIdImagesGet(liveReportingId, pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} playerId 
+     * @param {number} [pageSize] 
+     * @param {number} [page] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImagekitApi
+     */
+    public apiImageKitPlayersPlayerIdImagesGet(playerId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitPlayersPlayerIdImagesGet(playerId, pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {FileUpdateRequest} fileUpdateRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImagekitApi
+     */
+    public apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitUpdateImagePut(fileUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
