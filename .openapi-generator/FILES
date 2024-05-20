@@ -44,6 +44,7 @@ models/embedded-metadata.ts
 models/embedded-player-dto.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
+models/event-images-dto.ts
 models/event-meta-dto.ts
 models/event-player-statistics-item.ts
 models/event-player-statistics.ts
@@ -57,6 +58,7 @@ models/file-update-request.ts
 models/forgot-password-request.ts
 models/get-file-list-request.ts
 models/http-validation-problem-details.ts
+models/image-dto.ts
 models/index.ts
 models/info-request.ts
 models/info-response.ts
