@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { EventSummaryDto } from './event-summary-dto';
 
 /**
  * 
@@ -80,5 +83,11 @@ export interface FestivalDetailsDto {
      * @memberof FestivalDetailsDto
      */
     'seasonName': string;
+    /**
+     * 
+     * @type {Array<EventSummaryDto>}
+     * @memberof FestivalDetailsDto
+     */
+    'activeEvents'?: Array<EventSummaryDto> | null;
 }
 

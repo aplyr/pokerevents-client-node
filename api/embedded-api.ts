@@ -116,12 +116,11 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @param {string} eventId 
-         * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedEventsEventIdImagesGet: async (eventId: string, pageSize?: number, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiEmbeddedEventsEventIdImagesGet: async (eventId: string, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'eventId' is not null or undefined
             assertParamExists('apiEmbeddedEventsEventIdImagesGet', 'eventId', eventId)
             const localVarPath = `/api/Embedded/events/{eventId}/images`
@@ -139,10 +138,6 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication bearer required
             await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['pageSize'] = pageSize;
-            }
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -293,13 +288,12 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} eventId 
-         * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEmbeddedEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventImagesDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedEventsEventIdImagesGet(eventId, pageSize, page, options);
+        async apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventImagesDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedEventsEventIdImagesGet(eventId, page, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedEventsEventIdImagesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -364,13 +358,12 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @param {string} eventId 
-         * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: any): AxiosPromise<EventImagesDto> {
-            return localVarFp.apiEmbeddedEventsEventIdImagesGet(eventId, pageSize, page, options).then((request) => request(axios, basePath));
+        apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: any): AxiosPromise<EventImagesDto> {
+            return localVarFp.apiEmbeddedEventsEventIdImagesGet(eventId, page, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -430,14 +423,13 @@ export class EmbeddedApi extends BaseAPI {
     /**
      * 
      * @param {string} eventId 
-     * @param {number} [pageSize] 
      * @param {number} [page] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmbeddedApi
      */
-    public apiEmbeddedEventsEventIdImagesGet(eventId: string, pageSize?: number, page?: number, options?: RawAxiosRequestConfig) {
-        return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdImagesGet(eventId, pageSize, page, options).then((request) => request(this.axios, this.basePath));
+    public apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdImagesGet(eventId, page, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
