@@ -40,7 +40,7 @@ export interface FestivalDetailsDto {
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}
@@ -82,7 +82,7 @@ export interface FestivalDetailsDto {
      * @type {string}
      * @memberof FestivalDetailsDto
      */
-    'seasonName': string;
+    'seasonName': string | null;
     /**
      * 
      * @type {Array<EventSummaryDto>}

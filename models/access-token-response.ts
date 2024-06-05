@@ -31,7 +31,7 @@ export interface AccessTokenResponse {
      * @type {string}
      * @memberof AccessTokenResponse
      */
-    'accessToken': string;
+    'accessToken': string | null;
     /**
      * 
      * @type {number}
@@ -43,6 +43,6 @@ export interface AccessTokenResponse {
      * @type {string}
      * @memberof AccessTokenResponse
      */
-    'refreshToken': string;
+    'refreshToken': string | null;
 }
 

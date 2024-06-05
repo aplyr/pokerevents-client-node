@@ -40,7 +40,7 @@ export interface EventBasicDetailsRequest {
      * @type {string}
      * @memberof EventBasicDetailsRequest
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {number}

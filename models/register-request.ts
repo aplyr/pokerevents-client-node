@@ -25,12 +25,12 @@ export interface RegisterRequest {
      * @type {string}
      * @memberof RegisterRequest
      */
-    'email': string;
+    'email': string | null;
     /**
      * 
      * @type {string}
      * @memberof RegisterRequest
      */
-    'password': string;
+    'password': string | null;
 }
 

@@ -28,27 +28,21 @@ export interface EmbeddedPlayerDto {
     'eventId': string;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'finalVersion'?: boolean;
+    'embedCode': string | null;
     /**
      * 
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'embedCode': string;
+    'embedScriptUrl': string | null;
     /**
      * 
      * @type {string}
      * @memberof EmbeddedPlayerDto
      */
-    'embedScriptUrl': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EmbeddedPlayerDto
-     */
-    'embedStyleUrl': string;
+    'embedStyleUrl': string | null;
 }
 

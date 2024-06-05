@@ -37,7 +37,7 @@ export interface PlayerSummaryDto {
      * @type {string}
      * @memberof PlayerSummaryDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}

@@ -13,18 +13,27 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { TourOverviewDto } from './tour-overview-dto';
 
 /**
  * 
  * @export
- * @interface ForgotPasswordRequest
+ * @interface OverviewDto
  */
-export interface ForgotPasswordRequest {
+export interface OverviewDto {
     /**
      * 
      * @type {string}
-     * @memberof ForgotPasswordRequest
+     * @memberof OverviewDto
      */
-    'email': string | null;
+    'createdAt'?: string;
+    /**
+     * 
+     * @type {Array<TourOverviewDto>}
+     * @memberof OverviewDto
+     */
+    'tours': Array<TourOverviewDto> | null;
 }
 

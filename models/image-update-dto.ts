@@ -17,56 +17,50 @@
 /**
  * 
  * @export
- * @interface PlayerEntity
+ * @interface ImageUpdateDto
  */
-export interface PlayerEntity {
+export interface ImageUpdateDto {
     /**
      * 
      * @type {string}
-     * @memberof PlayerEntity
+     * @memberof ImageUpdateDto
      */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'name': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'nickname'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'photoUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'thmId'?: string | null;
+    'fileId'?: string | null;
     /**
      * 
      * @type {Array<string>}
-     * @memberof PlayerEntity
+     * @memberof ImageUpdateDto
      */
-    'photos'?: Array<string> | null;
+    'removeAITags'?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImageUpdateDto
+     */
+    'webhookUrl'?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImageUpdateDto
+     */
+    'extensions'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImageUpdateDto
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImageUpdateDto
+     */
+    'customCoordinates'?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof ImageUpdateDto
+     */
+    'customMetadata'?: { [key: string]: string; } | null;
 }
 

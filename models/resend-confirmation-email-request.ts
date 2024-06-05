@@ -25,6 +25,6 @@ export interface ResendConfirmationEmailRequest {
      * @type {string}
      * @memberof ResendConfirmationEmailRequest
      */
-    'email': string;
+    'email': string | null;
 }
 

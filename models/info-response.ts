@@ -25,7 +25,7 @@ export interface InfoResponse {
      * @type {string}
      * @memberof InfoResponse
      */
-    'email': string;
+    'email': string | null;
     /**
      * 
      * @type {boolean}

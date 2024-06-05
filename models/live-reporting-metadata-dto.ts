@@ -46,18 +46,18 @@ export interface LiveReportingMetadataDto {
      * @type {Array<string>}
      * @memberof LiveReportingMetadataDto
      */
-    'allTags': Array<string>;
+    'allTags': Array<string> | null;
     /**
      * 
      * @type {Array<PlayerSummaryDto>}
      * @memberof LiveReportingMetadataDto
      */
-    'allPlayers': Array<PlayerSummaryDto>;
+    'allPlayers': Array<PlayerSummaryDto> | null;
     /**
      * 
      * @type {Array<BlindLevelDto>}
      * @memberof LiveReportingMetadataDto
      */
-    'allBlindLevels': Array<BlindLevelDto>;
+    'allBlindLevels': Array<BlindLevelDto> | null;
 }
 

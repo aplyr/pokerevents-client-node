@@ -25,18 +25,18 @@ export interface ResetPasswordRequest {
      * @type {string}
      * @memberof ResetPasswordRequest
      */
-    'email': string;
+    'email': string | null;
     /**
      * 
      * @type {string}
      * @memberof ResetPasswordRequest
      */
-    'resetCode': string;
+    'resetCode': string | null;
     /**
      * 
      * @type {string}
      * @memberof ResetPasswordRequest
      */
-    'newPassword': string;
+    'newPassword': string | null;
 }
 

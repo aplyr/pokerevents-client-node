@@ -28,6 +28,12 @@ export interface CacheStatisticsDto {
      * @type {MemoryCacheStatistics}
      * @memberof CacheStatisticsDto
      */
+    'festivalEventsStatistics'?: MemoryCacheStatistics;
+    /**
+     * 
+     * @type {MemoryCacheStatistics}
+     * @memberof CacheStatisticsDto
+     */
     'eventStatistics'?: MemoryCacheStatistics;
     /**
      * 

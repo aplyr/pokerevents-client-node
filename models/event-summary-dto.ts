@@ -34,7 +34,7 @@ export interface EventSummaryDto {
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}
@@ -76,7 +76,7 @@ export interface EventSummaryDto {
      * @type {string}
      * @memberof EventSummaryDto
      */
-    'festivalName': string;
+    'festivalName': string | null;
     /**
      * 
      * @type {string}

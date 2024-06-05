@@ -25,36 +25,36 @@ export interface VenueDto {
      * @type {string}
      * @memberof VenueDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}
      * @memberof VenueDto
      */
-    'thmId': string;
+    'thmId': string | null;
     /**
      * 
      * @type {string}
      * @memberof VenueDto
      */
-    'link': string;
+    'link': string | null;
     /**
      * 
      * @type {string}
      * @memberof VenueDto
      */
-    'city': string;
+    'city': string | null;
     /**
      * 
      * @type {string}
      * @memberof VenueDto
      */
-    'country': string;
+    'country': string | null;
     /**
      * 
      * @type {string}
      * @memberof VenueDto
      */
-    'countryCode': string;
+    'countryCode': string | null;
 }
 

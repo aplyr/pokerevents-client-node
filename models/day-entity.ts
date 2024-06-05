@@ -37,7 +37,7 @@ export interface DayEntity {
      * @type {string}
      * @memberof DayEntity
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}

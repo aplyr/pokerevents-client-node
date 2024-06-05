@@ -34,6 +34,6 @@ export interface EventPlayerStatistics {
      * @type {Array<EventPlayerStatisticsItem>}
      * @memberof EventPlayerStatistics
      */
-    'players': Array<EventPlayerStatisticsItem>;
+    'players': Array<EventPlayerStatisticsItem> | null;
 }
 

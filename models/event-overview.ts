@@ -13,72 +13,62 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { LiveReportingOverviewDto } from './live-reporting-overview-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { StateType } from './state-type';
 
 /**
  * 
  * @export
- * @interface FestivalEntity
+ * @interface EventOverview
  */
-export interface FestivalEntity {
+export interface EventOverview {
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventOverview
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventOverview
      */
-    'seasonId'?: string;
+    'name'?: string | null;
+    /**
+     * 
+     * @type {StateType}
+     * @memberof EventOverview
+     */
+    'state': StateType;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventOverview
+     */
+    'priority'?: number;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'venueId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'name': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventOverview
      */
     'fromDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof EventOverview
      */
     'toDate'?: string;
     /**
      * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @type {Array<LiveReportingOverviewDto>}
+     * @memberof EventOverview
      */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'websiteUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'thmId'?: string | null;
+    'liveReportings': Array<LiveReportingOverviewDto> | null;
 }
+
+
 

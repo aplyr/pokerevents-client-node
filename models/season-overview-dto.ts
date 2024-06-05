@@ -13,18 +13,33 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { FestivalOverviewDto } from './festival-overview-dto';
 
 /**
  * 
  * @export
- * @interface ForgotPasswordRequest
+ * @interface SeasonOverviewDto
  */
-export interface ForgotPasswordRequest {
+export interface SeasonOverviewDto {
     /**
      * 
      * @type {string}
-     * @memberof ForgotPasswordRequest
+     * @memberof SeasonOverviewDto
      */
-    'email': string | null;
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeasonOverviewDto
+     */
+    'name': string | null;
+    /**
+     * 
+     * @type {Array<FestivalOverviewDto>}
+     * @memberof SeasonOverviewDto
+     */
+    'festivals': Array<FestivalOverviewDto> | null;
 }
 

@@ -34,6 +34,6 @@ export interface EventImagesDto {
      * @type {Array<ImageDto>}
      * @memberof EventImagesDto
      */
-    'images': Array<ImageDto>;
+    'images': Array<ImageDto> | null;
 }
 

@@ -28,6 +28,6 @@ export interface SyncResult {
      * @type {Array<SyncResultItem>}
      * @memberof SyncResult
      */
-    'results': Array<SyncResultItem>;
+    'results': Array<SyncResultItem> | null;
 }
 

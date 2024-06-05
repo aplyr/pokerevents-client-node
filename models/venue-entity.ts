@@ -31,7 +31,7 @@ export interface VenueEntity {
      * @type {string}
      * @memberof VenueEntity
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}

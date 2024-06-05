@@ -85,7 +85,7 @@ export interface LiveUpdateDto {
      * @type {string}
      * @memberof LiveUpdateDto
      */
-    'title': string;
+    'title': string | null;
     /**
      * 
      * @type {LiveUpdateState}

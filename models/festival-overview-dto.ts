@@ -13,72 +13,62 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { EventOverview } from './event-overview';
+// May contain unused imports in some cases
+// @ts-ignore
+import { FestivalState } from './festival-state';
 
 /**
  * 
  * @export
- * @interface FestivalEntity
+ * @interface FestivalOverviewDto
  */
-export interface FestivalEntity {
+export interface FestivalOverviewDto {
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof FestivalOverviewDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'seasonId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'venueId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof FestivalOverviewDto
      */
     'name': string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof FestivalOverviewDto
      */
     'fromDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof FestivalOverviewDto
      */
     'toDate'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'countryIso'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof FestivalOverviewDto
      */
     'websiteUrl'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @type {FestivalState}
+     * @memberof FestivalOverviewDto
      */
-    'thmId'?: string | null;
+    'state'?: FestivalState;
+    /**
+     * 
+     * @type {Array<EventOverview>}
+     * @memberof FestivalOverviewDto
+     */
+    'events': Array<EventOverview> | null;
 }
+
+
 

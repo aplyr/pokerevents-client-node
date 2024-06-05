@@ -1,4 +1,4 @@
-## @pokerevents/client@1.0.0-SNAPSHOT.202405241005
+## @pokerevents/client@1.0.0-SNAPSHOT.202406051215
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @pokerevents/client@1.0.0-SNAPSHOT.202405241005 --save
+npm install @pokerevents/client@1.0.0-SNAPSHOT.202406051215 --save
 ```
 
 _unPublished (not recommended):_

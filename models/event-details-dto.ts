@@ -73,7 +73,7 @@ export interface EventDetailsDto {
      * @type {string}
      * @memberof EventDetailsDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}
@@ -139,7 +139,7 @@ export interface EventDetailsDto {
      * @type {Array<string>}
      * @memberof EventDetailsDto
      */
-    'photos': Array<string>;
+    'photos': Array<string> | null;
     /**
      * 
      * @type {FestivalDetailsDto}
@@ -151,31 +151,31 @@ export interface EventDetailsDto {
      * @type {Array<DayEntity>}
      * @memberof EventDetailsDto
      */
-    'days': Array<DayEntity>;
+    'days': Array<DayEntity> | null;
     /**
      * 
      * @type {Array<BlindLevelDto>}
      * @memberof EventDetailsDto
      */
-    'blindLevels': Array<BlindLevelDto>;
+    'blindLevels': Array<BlindLevelDto> | null;
     /**
      * 
      * @type {Array<PayoutDetailsDto>}
      * @memberof EventDetailsDto
      */
-    'payouts': Array<PayoutDetailsDto>;
+    'payouts': Array<PayoutDetailsDto> | null;
     /**
      * 
      * @type {Array<RegistrationDetailedDto>}
      * @memberof EventDetailsDto
      */
-    'registrations': Array<RegistrationDetailedDto>;
+    'registrations': Array<RegistrationDetailedDto> | null;
     /**
      * 
      * @type {Array<LiveReportingSummaryDto>}
      * @memberof EventDetailsDto
      */
-    'liveReportings': Array<LiveReportingSummaryDto>;
+    'liveReportings': Array<LiveReportingSummaryDto> | null;
 }
 
 

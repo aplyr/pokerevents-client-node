@@ -52,13 +52,13 @@ export interface LiveReportingStatisticsDto {
      * @type {number}
      * @memberof LiveReportingStatisticsDto
      */
-    'totalChipCount'?: number;
+    'totalChipCount'?: number | null;
     /**
      * 
      * @type {number}
      * @memberof LiveReportingStatisticsDto
      */
-    'averageStack'?: number;
+    'averageStack'?: number | null;
     /**
      * 
      * @type {BlindLevelDto}

@@ -46,7 +46,7 @@ export interface LiveUpdateRequest {
      * @type {string}
      * @memberof LiveUpdateRequest
      */
-    'title': string;
+    'title': string | null;
     /**
      * 
      * @type {string}

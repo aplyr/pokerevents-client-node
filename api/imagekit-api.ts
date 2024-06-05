@@ -24,9 +24,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ope
 // @ts-ignore
 import { AuthParamResponse } from '../models';
 // @ts-ignore
-import { FileUpdateRequest } from '../models';
-// @ts-ignore
 import { GetFileListRequest } from '../models';
+// @ts-ignore
+import { ImageUpdateDto } from '../models';
 // @ts-ignore
 import { Result } from '../models';
 // @ts-ignore
@@ -247,13 +247,13 @@ export const ImagekitApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {ImageUpdateDto} imageUpdateDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImageKitUpdateImagePut: async (fileUpdateRequest: FileUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fileUpdateRequest' is not null or undefined
-            assertParamExists('apiImageKitUpdateImagePut', 'fileUpdateRequest', fileUpdateRequest)
+        apiImageKitUpdateImagePut: async (imageUpdateDto: ImageUpdateDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'imageUpdateDto' is not null or undefined
+            assertParamExists('apiImageKitUpdateImagePut', 'imageUpdateDto', imageUpdateDto)
             const localVarPath = `/api/ImageKit/update-image`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -276,7 +276,7 @@ export const ImagekitApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(fileUpdateRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(imageUpdateDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -360,12 +360,12 @@ export const ImagekitApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {ImageUpdateDto} imageUpdateDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Result>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitUpdateImagePut(fileUpdateRequest, options);
+        async apiImageKitUpdateImagePut(imageUpdateDto: ImageUpdateDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Result>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImageKitUpdateImagePut(imageUpdateDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ImagekitApi.apiImageKitUpdateImagePut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -432,12 +432,12 @@ export const ImagekitApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
-         * @param {FileUpdateRequest} fileUpdateRequest 
+         * @param {ImageUpdateDto} imageUpdateDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: any): AxiosPromise<Result> {
-            return localVarFp.apiImageKitUpdateImagePut(fileUpdateRequest, options).then((request) => request(axios, basePath));
+        apiImageKitUpdateImagePut(imageUpdateDto: ImageUpdateDto, options?: any): AxiosPromise<Result> {
+            return localVarFp.apiImageKitUpdateImagePut(imageUpdateDto, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -511,13 +511,13 @@ export class ImagekitApi extends BaseAPI {
 
     /**
      * 
-     * @param {FileUpdateRequest} fileUpdateRequest 
+     * @param {ImageUpdateDto} imageUpdateDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ImagekitApi
      */
-    public apiImageKitUpdateImagePut(fileUpdateRequest: FileUpdateRequest, options?: RawAxiosRequestConfig) {
-        return ImagekitApiFp(this.configuration).apiImageKitUpdateImagePut(fileUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    public apiImageKitUpdateImagePut(imageUpdateDto: ImageUpdateDto, options?: RawAxiosRequestConfig) {
+        return ImagekitApiFp(this.configuration).apiImageKitUpdateImagePut(imageUpdateDto, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -28,6 +28,8 @@ import { EventDetailsDto } from '../models';
 // @ts-ignore
 import { EventImagesDto } from '../models';
 // @ts-ignore
+import { EventSummaryDto } from '../models';
+// @ts-ignore
 import { LiveReportingMetadataDto } from '../models';
 // @ts-ignore
 import { LiveUpdateDto } from '../models';
@@ -142,6 +144,42 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} festivalId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedFestivalsFestivalIdEventsGet: async (festivalId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'festivalId' is not null or undefined
+            assertParamExists('apiEmbeddedFestivalsFestivalIdEventsGet', 'festivalId', festivalId)
+            const localVarPath = `/api/Embedded/festivals/{festivalId}/events`
+                .replace(`{${"festivalId"}}`, encodeURIComponent(String(festivalId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -300,6 +338,18 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} festivalId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEmbeddedFestivalsFestivalIdEventsGet(festivalId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EventSummaryDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedFestivalsFestivalIdEventsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -367,6 +417,15 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
+         * @param {string} festivalId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedFestivalsFestivalIdEventsGet(festivalId: string, options?: any): AxiosPromise<Array<EventSummaryDto>> {
+            return localVarFp.apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} liveReportingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -430,6 +489,17 @@ export class EmbeddedApi extends BaseAPI {
      */
     public apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: RawAxiosRequestConfig) {
         return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdImagesGet(eventId, page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} festivalId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EmbeddedApi
+     */
+    public apiEmbeddedFestivalsFestivalIdEventsGet(festivalId: string, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

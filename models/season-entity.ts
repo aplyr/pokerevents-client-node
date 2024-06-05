@@ -37,7 +37,7 @@ export interface SeasonEntity {
      * @type {string}
      * @memberof SeasonEntity
      */
-    'name': string;
+    'name': string | null;
     /**
      * 
      * @type {string}

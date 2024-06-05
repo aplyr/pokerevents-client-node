@@ -13,36 +13,45 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { SeasonOverviewDto } from './season-overview-dto';
 
 /**
  * 
  * @export
- * @interface PokerUserDto
+ * @interface TourOverviewDto
  */
-export interface PokerUserDto {
+export interface TourOverviewDto {
     /**
      * 
      * @type {string}
-     * @memberof PokerUserDto
+     * @memberof TourOverviewDto
      */
-    'email': string | null;
+    'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof PokerUserDto
+     * @memberof TourOverviewDto
      */
-    'displayName'?: string | null;
+    'name': string | null;
     /**
      * 
      * @type {string}
-     * @memberof PokerUserDto
+     * @memberof TourOverviewDto
      */
-    'avatarUrl'?: string | null;
+    'logoUrl'?: string | null;
     /**
      * 
-     * @type {Array<string>}
-     * @memberof PokerUserDto
+     * @type {string}
+     * @memberof TourOverviewDto
      */
-    'roles': Array<string> | null;
+    'websiteUrl'?: string | null;
+    /**
+     * 
+     * @type {Array<SeasonOverviewDto>}
+     * @memberof TourOverviewDto
+     */
+    'seasons': Array<SeasonOverviewDto> | null;
 }
 

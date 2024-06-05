@@ -13,60 +13,56 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { EmbeddedPlayerDto } from './embedded-player-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { StateType } from './state-type';
 
 /**
  * 
  * @export
- * @interface PlayerEntity
+ * @interface LiveReportingOverviewDto
  */
-export interface PlayerEntity {
+export interface LiveReportingOverviewDto {
     /**
      * 
      * @type {string}
-     * @memberof PlayerEntity
+     * @memberof LiveReportingOverviewDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof PlayerEntity
+     * @memberof LiveReportingOverviewDto
      */
     'name': string | null;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerEntity
+     * @type {StateType}
+     * @memberof LiveReportingOverviewDto
      */
-    'description'?: string | null;
+    'state'?: StateType;
     /**
      * 
      * @type {string}
-     * @memberof PlayerEntity
+     * @memberof LiveReportingOverviewDto
      */
-    'nickname'?: string | null;
+    'startsAt'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof PlayerEntity
+     * @memberof LiveReportingOverviewDto
      */
-    'countryIso'?: string | null;
+    'finishedAt'?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof PlayerEntity
+     * @type {EmbeddedPlayerDto}
+     * @memberof LiveReportingOverviewDto
      */
-    'photoUrl'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PlayerEntity
-     */
-    'thmId'?: string | null;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof PlayerEntity
-     */
-    'photos'?: Array<string> | null;
+    'embeddedCode'?: EmbeddedPlayerDto;
 }
+
+
 

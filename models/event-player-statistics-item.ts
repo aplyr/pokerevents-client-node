@@ -43,6 +43,6 @@ export interface EventPlayerStatisticsItem {
      * @type {Array<ChipCountDto>}
      * @memberof EventPlayerStatisticsItem
      */
-    'chipCountUpdates': Array<ChipCountDto>;
+    'chipCountUpdates': Array<ChipCountDto> | null;
 }
 

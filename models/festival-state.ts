@@ -17,14 +17,15 @@
 /**
  * 
  * @export
- * @interface ForgotPasswordRequest
+ * @enum {string}
  */
-export interface ForgotPasswordRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ForgotPasswordRequest
-     */
-    'email': string | null;
+
+export enum FestivalState {
+    UpComing = 'UpComing',
+    Finished = 'Finished',
+    Ongoing = 'Ongoing',
+    Live = 'Live'
 }
+
+
 
