@@ -30,9 +30,13 @@ import { EventImagesDto } from '../models';
 // @ts-ignore
 import { EventSummaryDto } from '../models';
 // @ts-ignore
+import { ImageDto } from '../models';
+// @ts-ignore
 import { LiveReportingMetadataDto } from '../models';
 // @ts-ignore
 import { LiveUpdateDto } from '../models';
+// @ts-ignore
+import { PlayerEventDetailsDto } from '../models';
 // @ts-ignore
 import { ProblemDetails } from '../models';
 // @ts-ignore
@@ -119,10 +123,12 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
          * 
          * @param {string} eventId 
          * @param {number} [page] 
+         * @param {Array<string>} [tags] 
+         * @param {string} [playerId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedEventsEventIdImagesGet: async (eventId: string, page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiEmbeddedEventsEventIdImagesGet: async (eventId: string, page?: number, tags?: Array<string>, playerId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'eventId' is not null or undefined
             assertParamExists('apiEmbeddedEventsEventIdImagesGet', 'eventId', eventId)
             const localVarPath = `/api/Embedded/events/{eventId}/images`
@@ -144,6 +150,54 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
+
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            if (playerId !== undefined) {
+                localVarQueryParameter['playerId'] = playerId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {string} playerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedEventsEventIdPlayersPlayerIdGet: async (eventId: string, playerId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'eventId' is not null or undefined
+            assertParamExists('apiEmbeddedEventsEventIdPlayersPlayerIdGet', 'eventId', eventId)
+            // verify required parameter 'playerId' is not null or undefined
+            assertParamExists('apiEmbeddedEventsEventIdPlayersPlayerIdGet', 'playerId', playerId)
+            const localVarPath = `/api/Embedded/events/{eventId}/players/{playerId}`
+                .replace(`{${"eventId"}}`, encodeURIComponent(String(eventId)))
+                .replace(`{${"playerId"}}`, encodeURIComponent(String(playerId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -180,6 +234,63 @@ export const EmbeddedApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication bearer required
             await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} [eventId] 
+         * @param {string} [playerId] 
+         * @param {Array<string>} [tags] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedImagesGet: async (eventId?: string, playerId?: string, tags?: Array<string>, page?: number, pageSize?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Embedded/images`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (eventId !== undefined) {
+                localVarQueryParameter['eventId'] = eventId;
+            }
+
+            if (playerId !== undefined) {
+                localVarQueryParameter['playerId'] = playerId;
+            }
+
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
 
 
     
@@ -327,13 +438,28 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} eventId 
          * @param {number} [page] 
+         * @param {Array<string>} [tags] 
+         * @param {string} [playerId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventImagesDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedEventsEventIdImagesGet(eventId, page, options);
+        async apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, tags?: Array<string>, playerId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EventImagesDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedEventsEventIdImagesGet(eventId, page, tags, playerId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedEventsEventIdImagesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {string} playerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId: string, playerId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerEventDetailsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId, playerId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedEventsEventIdPlayersPlayerIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -346,6 +472,22 @@ export const EmbeddedApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedFestivalsFestivalIdEventsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} [eventId] 
+         * @param {string} [playerId] 
+         * @param {Array<string>} [tags] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiEmbeddedImagesGet(eventId?: string, playerId?: string, tags?: Array<string>, page?: number, pageSize?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ImageDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiEmbeddedImagesGet(eventId, playerId, tags, page, pageSize, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EmbeddedApi.apiEmbeddedImagesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -409,11 +551,23 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
          * 
          * @param {string} eventId 
          * @param {number} [page] 
+         * @param {Array<string>} [tags] 
+         * @param {string} [playerId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: any): AxiosPromise<EventImagesDto> {
-            return localVarFp.apiEmbeddedEventsEventIdImagesGet(eventId, page, options).then((request) => request(axios, basePath));
+        apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, tags?: Array<string>, playerId?: string, options?: any): AxiosPromise<EventImagesDto> {
+            return localVarFp.apiEmbeddedEventsEventIdImagesGet(eventId, page, tags, playerId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} eventId 
+         * @param {string} playerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId: string, playerId: string, options?: any): AxiosPromise<PlayerEventDetailsDto> {
+            return localVarFp.apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId, playerId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -423,6 +577,19 @@ export const EmbeddedApiFactory = function (configuration?: Configuration, baseP
          */
         apiEmbeddedFestivalsFestivalIdEventsGet(festivalId: string, options?: any): AxiosPromise<Array<EventSummaryDto>> {
             return localVarFp.apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} [eventId] 
+         * @param {string} [playerId] 
+         * @param {Array<string>} [tags] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiEmbeddedImagesGet(eventId?: string, playerId?: string, tags?: Array<string>, page?: number, pageSize?: number, options?: any): AxiosPromise<Array<ImageDto>> {
+            return localVarFp.apiEmbeddedImagesGet(eventId, playerId, tags, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -483,12 +650,26 @@ export class EmbeddedApi extends BaseAPI {
      * 
      * @param {string} eventId 
      * @param {number} [page] 
+     * @param {Array<string>} [tags] 
+     * @param {string} [playerId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmbeddedApi
      */
-    public apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, options?: RawAxiosRequestConfig) {
-        return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdImagesGet(eventId, page, options).then((request) => request(this.axios, this.basePath));
+    public apiEmbeddedEventsEventIdImagesGet(eventId: string, page?: number, tags?: Array<string>, playerId?: string, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdImagesGet(eventId, page, tags, playerId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} eventId 
+     * @param {string} playerId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EmbeddedApi
+     */
+    public apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId: string, playerId: string, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedEventsEventIdPlayersPlayerIdGet(eventId, playerId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -500,6 +681,21 @@ export class EmbeddedApi extends BaseAPI {
      */
     public apiEmbeddedFestivalsFestivalIdEventsGet(festivalId: string, options?: RawAxiosRequestConfig) {
         return EmbeddedApiFp(this.configuration).apiEmbeddedFestivalsFestivalIdEventsGet(festivalId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} [eventId] 
+     * @param {string} [playerId] 
+     * @param {Array<string>} [tags] 
+     * @param {number} [page] 
+     * @param {number} [pageSize] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EmbeddedApi
+     */
+    public apiEmbeddedImagesGet(eventId?: string, playerId?: string, tags?: Array<string>, page?: number, pageSize?: number, options?: RawAxiosRequestConfig) {
+        return EmbeddedApiFp(this.configuration).apiEmbeddedImagesGet(eventId, playerId, tags, page, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

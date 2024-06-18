@@ -47,6 +47,7 @@ models/event-basic-details-request.ts
 models/event-details-dto.ts
 models/event-images-dto.ts
 models/event-meta-dto.ts
+models/event-name-dto.ts
 models/event-overview.ts
 models/event-player-statistics-item.ts
 models/event-player-statistics.ts
@@ -82,6 +83,7 @@ models/overview-dto.ts
 models/payout-details-dto.ts
 models/payout-entity.ts
 models/player-entity.ts
+models/player-event-details-dto.ts
 models/player-in-event-dto.ts
 models/player-summary-dto.ts
 models/poker-user-dto.ts
