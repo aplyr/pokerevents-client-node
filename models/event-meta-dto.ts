@@ -101,5 +101,11 @@ export interface EventMetaDto {
      * @memberof EventMetaDto
      */
     'winner'?: PlayerSummaryDto;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventMetaDto
+     */
+    'winningHand'?: string | null;
 }
 
