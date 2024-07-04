@@ -35,5 +35,6 @@ export * from './api/season-entity-api';
 export * from './api/signal-rapi';
 export * from './api/sync-api';
 export * from './api/tour-entity-api';
+export * from './api/user-management-api';
 export * from './api/venue-entity-api';
 

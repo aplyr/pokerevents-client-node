@@ -23,6 +23,7 @@ api/season-entity-api.ts
 api/signal-rapi.ts
 api/sync-api.ts
 api/tour-entity-api.ts
+api/user-management-api.ts
 api/venue-entity-api.ts
 base.ts
 common.ts
@@ -47,7 +48,6 @@ models/event-basic-details-request.ts
 models/event-details-dto.ts
 models/event-images-dto.ts
 models/event-meta-dto.ts
-models/event-name-dto.ts
 models/event-overview.ts
 models/event-player-statistics-item.ts
 models/event-player-statistics.ts
@@ -92,6 +92,7 @@ models/refresh-request.ts
 models/register-request.ts
 models/registration-detailed-dto.ts
 models/registration-entity.ts
+models/registration-event-details-dto.ts
 models/registration-request.ts
 models/registration-statistics-dto.ts
 models/resend-confirmation-email-request.ts

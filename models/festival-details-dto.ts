@@ -16,6 +16,9 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import { EventSummaryDto } from './event-summary-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { VenueDetailsDto } from './venue-details-dto';
 
 /**
  * 
@@ -89,5 +92,11 @@ export interface FestivalDetailsDto {
      * @memberof FestivalDetailsDto
      */
     'activeEvents'?: Array<EventSummaryDto> | null;
+    /**
+     * 
+     * @type {VenueDetailsDto}
+     * @memberof FestivalDetailsDto
+     */
+    'venue'?: VenueDetailsDto;
 }
 

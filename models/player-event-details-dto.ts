@@ -15,13 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { ActualPrizeDto } from './actual-prize-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { ChipCountDto } from './chip-count-dto';
 // May contain unused imports in some cases
 // @ts-ignore
-import { EventNameDto } from './event-name-dto';
+import { PlayerSummaryDto } from './player-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PlayerSummaryDto } from './player-summary-dto';
+import { RegistrationEventDetailsDto } from './registration-event-details-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { RegistrationStatisticsDto } from './registration-statistics-dto';
@@ -52,6 +55,18 @@ export interface PlayerEventDetailsDto {
     'registrationId'?: string;
     /**
      * 
+     * @type {number}
+     * @memberof PlayerEventDetailsDto
+     */
+    'position'?: number | null;
+    /**
+     * 
+     * @type {ActualPrizeDto}
+     * @memberof PlayerEventDetailsDto
+     */
+    'prize'?: ActualPrizeDto;
+    /**
+     * 
      * @type {PlayerSummaryDto}
      * @memberof PlayerEventDetailsDto
      */
@@ -70,9 +85,9 @@ export interface PlayerEventDetailsDto {
     'chipCountUpdates'?: Array<ChipCountDto> | null;
     /**
      * 
-     * @type {Array<EventNameDto>}
+     * @type {Array<RegistrationEventDetailsDto>}
      * @memberof PlayerEventDetailsDto
      */
-    'eventsAttended'?: Array<EventNameDto> | null;
+    'eventsAttended'?: Array<RegistrationEventDetailsDto> | null;
 }
 

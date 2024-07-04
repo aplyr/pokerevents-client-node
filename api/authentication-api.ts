@@ -57,49 +57,6 @@ export const AuthenticationApiAxiosParamCreator = function (configuration?: Conf
     return {
         /**
          * 
-         * @param {string} email 
-         * @param {string} secret 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiAuthenticationApproveUserEmailPost: async (email: string, secret: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'email' is not null or undefined
-            assertParamExists('apiAuthenticationApproveUserEmailPost', 'email', email)
-            // verify required parameter 'secret' is not null or undefined
-            assertParamExists('apiAuthenticationApproveUserEmailPost', 'secret', secret)
-            const localVarPath = `/api/Authentication/approve-user/{email}`
-                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication bearer required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
-
-            if (secret !== undefined) {
-                localVarQueryParameter['secret'] = secret;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
          * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -589,19 +546,6 @@ export const AuthenticationApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {string} email 
-         * @param {string} secret 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async apiAuthenticationApproveUserEmailPost(email: string, secret: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthenticationApproveUserEmailPost(email, secret, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthenticationApi.apiAuthenticationApproveUserEmailPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
          * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -769,16 +713,6 @@ export const AuthenticationApiFactory = function (configuration?: Configuration,
     return {
         /**
          * 
-         * @param {string} email 
-         * @param {string} secret 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiAuthenticationApproveUserEmailPost(email: string, secret: string, options?: any): AxiosPromise<void> {
-            return localVarFp.apiAuthenticationApproveUserEmailPost(email, secret, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -905,18 +839,6 @@ export const AuthenticationApiFactory = function (configuration?: Configuration,
  * @extends {BaseAPI}
  */
 export class AuthenticationApi extends BaseAPI {
-    /**
-     * 
-     * @param {string} email 
-     * @param {string} secret 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthenticationApi
-     */
-    public apiAuthenticationApproveUserEmailPost(email: string, secret: string, options?: RawAxiosRequestConfig) {
-        return AuthenticationApiFp(this.configuration).apiAuthenticationApproveUserEmailPost(email, secret, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
