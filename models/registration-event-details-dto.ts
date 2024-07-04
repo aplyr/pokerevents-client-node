@@ -16,6 +16,9 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import { ActualPrizeDto } from './actual-prize-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { EventMetaDto } from './event-meta-dto';
 
 /**
  * 
@@ -59,6 +62,12 @@ export interface RegistrationEventDetailsDto {
      * @memberof RegistrationEventDetailsDto
      */
     'payoutPrizeUsd'?: number | null;
+    /**
+     * 
+     * @type {EventMetaDto}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'eventMeta'?: EventMetaDto;
     /**
      * 
      * @type {string}
