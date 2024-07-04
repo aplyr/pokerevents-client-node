@@ -47,5 +47,41 @@ export interface RegistrationEventDetailsDto {
      * @memberof RegistrationEventDetailsDto
      */
     'prize'?: ActualPrizeDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'payoutPrize'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'payoutPrizeUsd'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'eventFromDate': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'eventToDate': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'festivalName': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'festivalCountryIso': string | null;
 }
 

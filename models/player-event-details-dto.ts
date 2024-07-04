@@ -61,6 +61,18 @@ export interface PlayerEventDetailsDto {
     'position'?: number | null;
     /**
      * 
+     * @type {number}
+     * @memberof PlayerEventDetailsDto
+     */
+    'payoutPrize'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof PlayerEventDetailsDto
+     */
+    'payoutPrizeUsd'?: number | null;
+    /**
+     * 
      * @type {ActualPrizeDto}
      * @memberof PlayerEventDetailsDto
      */
