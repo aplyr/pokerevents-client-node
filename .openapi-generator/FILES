@@ -11,6 +11,7 @@ api/event-statistics-api.ts
 api/events-api.ts
 api/festival-entity-api.ts
 api/imagekit-api.ts
+api/import-api.ts
 api/live-reportings-api.ts
 api/live-updates-api.ts
 api/overview-api.ts
@@ -32,6 +33,8 @@ git_push.sh
 index.ts
 models/access-token-response.ts
 models/actual-prize-dto.ts
+models/api-import-players-post-request.ts
+models/api-import-venues-post-request.ts
 models/auth-param-response.ts
 models/blind-level-dto.ts
 models/blind-level-entity.ts

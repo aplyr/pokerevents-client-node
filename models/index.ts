@@ -1,5 +1,7 @@
 export * from './access-token-response';
 export * from './actual-prize-dto';
+export * from './api-import-players-post-request';
+export * from './api-import-venues-post-request';
 export * from './auth-param-response';
 export * from './blind-level-dto';
 export * from './blind-level-entity';

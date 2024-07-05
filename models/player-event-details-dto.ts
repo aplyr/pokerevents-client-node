@@ -21,6 +21,9 @@ import { ActualPrizeDto } from './actual-prize-dto';
 import { ChipCountDto } from './chip-count-dto';
 // May contain unused imports in some cases
 // @ts-ignore
+import { EventMetaDto } from './event-meta-dto';
+// May contain unused imports in some cases
+// @ts-ignore
 import { PlayerSummaryDto } from './player-summary-dto';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -61,6 +64,12 @@ export interface PlayerEventDetailsDto {
     'position'?: number | null;
     /**
      * 
+     * @type {ActualPrizeDto}
+     * @memberof PlayerEventDetailsDto
+     */
+    'prize'?: ActualPrizeDto;
+    /**
+     * 
      * @type {number}
      * @memberof PlayerEventDetailsDto
      */
@@ -73,10 +82,10 @@ export interface PlayerEventDetailsDto {
     'payoutPrizeUsd'?: number | null;
     /**
      * 
-     * @type {ActualPrizeDto}
+     * @type {EventMetaDto}
      * @memberof PlayerEventDetailsDto
      */
-    'prize'?: ActualPrizeDto;
+    'eventMeta'?: EventMetaDto;
     /**
      * 
      * @type {PlayerSummaryDto}
