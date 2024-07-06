@@ -80,6 +80,7 @@ export * from './thm-sync-request';
 export * from './tour-dto';
 export * from './tour-entity';
 export * from './tour-overview-dto';
+export * from './tour-summary-dto';
 export * from './two-factor-request';
 export * from './two-factor-response';
 export * from './venue-details-dto';

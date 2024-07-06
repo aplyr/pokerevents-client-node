@@ -114,6 +114,7 @@ models/thm-sync-request.ts
 models/tour-dto.ts
 models/tour-entity.ts
 models/tour-overview-dto.ts
+models/tour-summary-dto.ts
 models/two-factor-request.ts
 models/two-factor-response.ts
 models/venue-details-dto.ts
