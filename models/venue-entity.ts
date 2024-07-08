@@ -98,5 +98,17 @@ export interface VenueEntity {
      * @memberof VenueEntity
      */
     'thmId'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof VenueEntity
+     */
+    'lat'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof VenueEntity
+     */
+    'lng'?: number | null;
 }
 

@@ -21,6 +21,10 @@ import globalAxios from 'axios';
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+// @ts-ignore
+import { PlayerImportDto } from '../models';
+// @ts-ignore
+import { VenueImportDto } from '../models';
 /**
  * ImportApi - axios parameter creator
  * @export
@@ -33,8 +37,8 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportPlayersPost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Import/players`;
+        apiImportPlayersFilePost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/players/file`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -70,12 +74,48 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
+         * @param {Array<PlayerImportDto>} [playerImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportPlayersPost: async (playerImportDto?: Array<PlayerImportDto>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/players`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(playerImportDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {File} [venuesFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportVenuesPost: async (venuesFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/Import/venues`;
+        apiImportVenuesFilePost: async (venuesFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/venues/file`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -109,6 +149,42 @@ export const ImportApiAxiosParamCreator = function (configuration?: Configuratio
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {Array<VenueImportDto>} [venueImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportVenuesPost: async (venueImportDto?: Array<VenueImportDto>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/venues`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(venueImportDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -125,8 +201,20 @@ export const ImportApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportPlayersPost(playersFile, options);
+        async apiImportPlayersFilePost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportPlayersFilePost(playersFile, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportPlayersFilePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {Array<PlayerImportDto>} [playerImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportPlayersPost(playerImportDto?: Array<PlayerImportDto>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportPlayersPost(playerImportDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportPlayersPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -137,8 +225,20 @@ export const ImportApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiImportVenuesPost(venuesFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportVenuesPost(venuesFile, options);
+        async apiImportVenuesFilePost(venuesFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportVenuesFilePost(venuesFile, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportVenuesFilePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {Array<VenueImportDto>} [venueImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportVenuesPost(venueImportDto?: Array<VenueImportDto>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportVenuesPost(venueImportDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportVenuesPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -159,8 +259,17 @@ export const ImportApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportPlayersPost(playersFile?: File, options?: any): AxiosPromise<void> {
-            return localVarFp.apiImportPlayersPost(playersFile, options).then((request) => request(axios, basePath));
+        apiImportPlayersFilePost(playersFile?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportPlayersFilePost(playersFile, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {Array<PlayerImportDto>} [playerImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportPlayersPost(playerImportDto?: Array<PlayerImportDto>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportPlayersPost(playerImportDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -168,8 +277,17 @@ export const ImportApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiImportVenuesPost(venuesFile?: File, options?: any): AxiosPromise<void> {
-            return localVarFp.apiImportVenuesPost(venuesFile, options).then((request) => request(axios, basePath));
+        apiImportVenuesFilePost(venuesFile?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportVenuesFilePost(venuesFile, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {Array<VenueImportDto>} [venueImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportVenuesPost(venueImportDto?: Array<VenueImportDto>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportVenuesPost(venueImportDto, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -188,8 +306,19 @@ export class ImportApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ImportApi
      */
-    public apiImportPlayersPost(playersFile?: File, options?: RawAxiosRequestConfig) {
-        return ImportApiFp(this.configuration).apiImportPlayersPost(playersFile, options).then((request) => request(this.axios, this.basePath));
+    public apiImportPlayersFilePost(playersFile?: File, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportPlayersFilePost(playersFile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Array<PlayerImportDto>} [playerImportDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportPlayersPost(playerImportDto?: Array<PlayerImportDto>, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportPlayersPost(playerImportDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -199,8 +328,19 @@ export class ImportApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ImportApi
      */
-    public apiImportVenuesPost(venuesFile?: File, options?: RawAxiosRequestConfig) {
-        return ImportApiFp(this.configuration).apiImportVenuesPost(venuesFile, options).then((request) => request(this.axios, this.basePath));
+    public apiImportVenuesFilePost(venuesFile?: File, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportVenuesFilePost(venuesFile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Array<VenueImportDto>} [venueImportDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportVenuesPost(venueImportDto?: Array<VenueImportDto>, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportVenuesPost(venueImportDto, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
