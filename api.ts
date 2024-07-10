@@ -17,6 +17,7 @@
 export * from './api/authentication-api';
 export * from './api/blind-level-entity-api';
 export * from './api/cache-api';
+export * from './api/chip-count-update-api';
 export * from './api/day-entity-api';
 export * from './api/embedded-api';
 export * from './api/event-statistics-api';

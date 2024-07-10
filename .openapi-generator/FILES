@@ -5,6 +5,7 @@ api.ts
 api/authentication-api.ts
 api/blind-level-entity-api.ts
 api/cache-api.ts
+api/chip-count-update-api.ts
 api/day-entity-api.ts
 api/embedded-api.ts
 api/event-statistics-api.ts
@@ -40,6 +41,7 @@ models/blind-level-dto.ts
 models/blind-level-entity.ts
 models/blind-level-type.ts
 models/cache-statistics-dto.ts
+models/chip-count-detailed-dto.ts
 models/chip-count-dto.ts
 models/chip-count-update-dto.ts
 models/chip-information-source.ts

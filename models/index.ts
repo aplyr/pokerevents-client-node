@@ -7,6 +7,7 @@ export * from './blind-level-dto';
 export * from './blind-level-entity';
 export * from './blind-level-type';
 export * from './cache-statistics-dto';
+export * from './chip-count-detailed-dto';
 export * from './chip-count-dto';
 export * from './chip-count-update-dto';
 export * from './chip-information-source';

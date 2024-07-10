@@ -19,6 +19,9 @@ import { ActualPrizeDto } from './actual-prize-dto';
 // May contain unused imports in some cases
 // @ts-ignore
 import { EventMetaDto } from './event-meta-dto';
+// May contain unused imports in some cases
+// @ts-ignore
+import { FestivalDetailsDto } from './festival-details-dto';
 
 /**
  * 
@@ -92,5 +95,11 @@ export interface RegistrationEventDetailsDto {
      * @memberof RegistrationEventDetailsDto
      */
     'festivalCountryIso': string | null;
+    /**
+     * 
+     * @type {FestivalDetailsDto}
+     * @memberof RegistrationEventDetailsDto
+     */
+    'festival'?: FestivalDetailsDto;
 }
 
