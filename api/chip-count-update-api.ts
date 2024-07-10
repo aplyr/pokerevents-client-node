@@ -36,6 +36,90 @@ export const ChipCountUpdateApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiChipCountUpdateRegistrationIdChipCountIdDelete: async (registrationId: string, chipCountId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'registrationId' is not null or undefined
+            assertParamExists('apiChipCountUpdateRegistrationIdChipCountIdDelete', 'registrationId', registrationId)
+            // verify required parameter 'chipCountId' is not null or undefined
+            assertParamExists('apiChipCountUpdateRegistrationIdChipCountIdDelete', 'chipCountId', chipCountId)
+            const localVarPath = `/api/ChipCountUpdate/{registrationId}/{chipCountId}`
+                .replace(`{${"registrationId"}}`, encodeURIComponent(String(registrationId)))
+                .replace(`{${"chipCountId"}}`, encodeURIComponent(String(chipCountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {ChipCountDto} [chipCountDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiChipCountUpdateRegistrationIdChipCountIdPut: async (registrationId: string, chipCountId: string, chipCountDto?: ChipCountDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'registrationId' is not null or undefined
+            assertParamExists('apiChipCountUpdateRegistrationIdChipCountIdPut', 'registrationId', registrationId)
+            // verify required parameter 'chipCountId' is not null or undefined
+            assertParamExists('apiChipCountUpdateRegistrationIdChipCountIdPut', 'chipCountId', chipCountId)
+            const localVarPath = `/api/ChipCountUpdate/{registrationId}/{chipCountId}`
+                .replace(`{${"registrationId"}}`, encodeURIComponent(String(registrationId)))
+                .replace(`{${"chipCountId"}}`, encodeURIComponent(String(chipCountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(chipCountDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} registrationId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -122,6 +206,33 @@ export const ChipCountUpdateApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId: string, chipCountId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId, chipCountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ChipCountUpdateApi.apiChipCountUpdateRegistrationIdChipCountIdDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {ChipCountDto} [chipCountDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId: string, chipCountId: string, chipCountDto?: ChipCountDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId, chipCountId, chipCountDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ChipCountUpdateApi.apiChipCountUpdateRegistrationIdChipCountIdPut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} registrationId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -138,7 +249,7 @@ export const ChipCountUpdateApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiChipCountUpdateRegistrationIdPost(registrationId: string, chipCountDto?: ChipCountDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async apiChipCountUpdateRegistrationIdPost(registrationId: string, chipCountDto?: ChipCountDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChipCountDetailedDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiChipCountUpdateRegistrationIdPost(registrationId, chipCountDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ChipCountUpdateApi.apiChipCountUpdateRegistrationIdPost']?.[localVarOperationServerIndex]?.url;
@@ -157,6 +268,27 @@ export const ChipCountUpdateApiFactory = function (configuration?: Configuration
         /**
          * 
          * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId: string, chipCountId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId, chipCountId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} registrationId 
+         * @param {string} chipCountId 
+         * @param {ChipCountDto} [chipCountDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId: string, chipCountId: string, chipCountDto?: ChipCountDto, options?: any): AxiosPromise<void> {
+            return localVarFp.apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId, chipCountId, chipCountDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} registrationId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -170,7 +302,7 @@ export const ChipCountUpdateApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiChipCountUpdateRegistrationIdPost(registrationId: string, chipCountDto?: ChipCountDto, options?: any): AxiosPromise<void> {
+        apiChipCountUpdateRegistrationIdPost(registrationId: string, chipCountDto?: ChipCountDto, options?: any): AxiosPromise<ChipCountDetailedDto> {
             return localVarFp.apiChipCountUpdateRegistrationIdPost(registrationId, chipCountDto, options).then((request) => request(axios, basePath));
         },
     };
@@ -183,6 +315,31 @@ export const ChipCountUpdateApiFactory = function (configuration?: Configuration
  * @extends {BaseAPI}
  */
 export class ChipCountUpdateApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} registrationId 
+     * @param {string} chipCountId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChipCountUpdateApi
+     */
+    public apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId: string, chipCountId: string, options?: RawAxiosRequestConfig) {
+        return ChipCountUpdateApiFp(this.configuration).apiChipCountUpdateRegistrationIdChipCountIdDelete(registrationId, chipCountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} registrationId 
+     * @param {string} chipCountId 
+     * @param {ChipCountDto} [chipCountDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChipCountUpdateApi
+     */
+    public apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId: string, chipCountId: string, chipCountDto?: ChipCountDto, options?: RawAxiosRequestConfig) {
+        return ChipCountUpdateApiFp(this.configuration).apiChipCountUpdateRegistrationIdChipCountIdPut(registrationId, chipCountId, chipCountDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {string} registrationId 
