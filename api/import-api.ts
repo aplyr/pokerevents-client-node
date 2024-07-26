@@ -22,7 +22,13 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import { EventImportDto } from '../models';
+// @ts-ignore
+import { FestivalImportDto } from '../models';
+// @ts-ignore
 import { PlayerImportDto } from '../models';
+// @ts-ignore
+import { Result } from '../models';
 // @ts-ignore
 import { VenueImportDto } from '../models';
 /**
@@ -31,6 +37,180 @@ import { VenueImportDto } from '../models';
  */
 export const ImportApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {File} [eventsFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportEventsFilePost: async (creatorEmail?: string, force?: boolean, eventsFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/events/file`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (creatorEmail !== undefined) {
+                localVarQueryParameter['creatorEmail'] = creatorEmail;
+            }
+
+            if (force !== undefined) {
+                localVarQueryParameter['force'] = force;
+            }
+
+
+            if (eventsFile !== undefined) { 
+                localVarFormParams.append('eventsFile', eventsFile as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {Array<EventImportDto>} [eventImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportEventsPost: async (creatorEmail?: string, force?: boolean, eventImportDto?: Array<EventImportDto>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/events`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (creatorEmail !== undefined) {
+                localVarQueryParameter['creatorEmail'] = creatorEmail;
+            }
+
+            if (force !== undefined) {
+                localVarQueryParameter['force'] = force;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(eventImportDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {File} [playersFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportFestivalsFilePost: async (playersFile?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/festivals/file`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+            if (playersFile !== undefined) { 
+                localVarFormParams.append('playersFile', playersFile as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {Array<FestivalImportDto>} [festivalImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportFestivalsPost: async (festivalImportDto?: Array<FestivalImportDto>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Import/festivals`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(festivalImportDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {File} [playersFile] 
@@ -197,6 +377,58 @@ export const ImportApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {File} [eventsFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportEventsFilePost(creatorEmail?: string, force?: boolean, eventsFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportEventsFilePost(creatorEmail, force, eventsFile, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportEventsFilePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {Array<EventImportDto>} [eventImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportEventsPost(creatorEmail?: string, force?: boolean, eventImportDto?: Array<EventImportDto>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportEventsPost(creatorEmail, force, eventImportDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportEventsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {File} [playersFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportFestivalsFilePost(playersFile?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportFestivalsFilePost(playersFile, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportFestivalsFilePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {Array<FestivalImportDto>} [festivalImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiImportFestivalsPost(festivalImportDto?: Array<FestivalImportDto>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiImportFestivalsPost(festivalImportDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ImportApi.apiImportFestivalsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {File} [playersFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -255,6 +487,46 @@ export const ImportApiFactory = function (configuration?: Configuration, basePat
     return {
         /**
          * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {File} [eventsFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportEventsFilePost(creatorEmail?: string, force?: boolean, eventsFile?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportEventsFilePost(creatorEmail, force, eventsFile, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} [creatorEmail] 
+         * @param {boolean} [force] 
+         * @param {Array<EventImportDto>} [eventImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportEventsPost(creatorEmail?: string, force?: boolean, eventImportDto?: Array<EventImportDto>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportEventsPost(creatorEmail, force, eventImportDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {File} [playersFile] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportFestivalsFilePost(playersFile?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportFestivalsFilePost(playersFile, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {Array<FestivalImportDto>} [festivalImportDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiImportFestivalsPost(festivalImportDto?: Array<FestivalImportDto>, options?: any): AxiosPromise<void> {
+            return localVarFp.apiImportFestivalsPost(festivalImportDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {File} [playersFile] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -299,6 +571,54 @@ export const ImportApiFactory = function (configuration?: Configuration, basePat
  * @extends {BaseAPI}
  */
 export class ImportApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} [creatorEmail] 
+     * @param {boolean} [force] 
+     * @param {File} [eventsFile] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportEventsFilePost(creatorEmail?: string, force?: boolean, eventsFile?: File, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportEventsFilePost(creatorEmail, force, eventsFile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} [creatorEmail] 
+     * @param {boolean} [force] 
+     * @param {Array<EventImportDto>} [eventImportDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportEventsPost(creatorEmail?: string, force?: boolean, eventImportDto?: Array<EventImportDto>, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportEventsPost(creatorEmail, force, eventImportDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {File} [playersFile] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportFestivalsFilePost(playersFile?: File, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportFestivalsFilePost(playersFile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Array<FestivalImportDto>} [festivalImportDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ImportApi
+     */
+    public apiImportFestivalsPost(festivalImportDto?: Array<FestivalImportDto>, options?: RawAxiosRequestConfig) {
+        return ImportApiFp(this.configuration).apiImportFestivalsPost(festivalImportDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {File} [playersFile] 

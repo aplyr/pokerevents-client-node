@@ -17,32 +17,26 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface ChipCountUpdateImportDto
  */
-export interface TourSummaryDto {
+export interface ChipCountUpdateImportDto {
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof ChipCountUpdateImportDto
      */
-    'id'?: string;
+    'name': string | null;
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {number}
+     * @memberof ChipCountUpdateImportDto
      */
-    'name'?: string | null;
+    'chips'?: number | null;
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {boolean}
+     * @memberof ChipCountUpdateImportDto
      */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'logoUrl'?: string | null;
+    'busted'?: boolean;
 }
 

@@ -17,32 +17,32 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface BlindLevelImportDto
  */
-export interface TourSummaryDto {
+export interface BlindLevelImportDto {
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {number}
+     * @memberof BlindLevelImportDto
      */
-    'id'?: string;
+    'number'?: number | null;
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {number}
+     * @memberof BlindLevelImportDto
      */
-    'name'?: string | null;
+    'smallBlind'?: number;
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {number}
+     * @memberof BlindLevelImportDto
      */
-    'abbreviation'?: string | null;
+    'bigBlind'?: number;
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {number}
+     * @memberof BlindLevelImportDto
      */
-    'logoUrl'?: string | null;
+    'ante'?: number | null;
 }
 

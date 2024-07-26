@@ -17,32 +17,14 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface ApiImportEventsFilePostRequest
  */
-export interface TourSummaryDto {
+export interface ApiImportEventsFilePostRequest {
     /**
      * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @type {File}
+     * @memberof ApiImportEventsFilePostRequest
      */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'logoUrl'?: string | null;
+    'eventsFile'?: File;
 }
 

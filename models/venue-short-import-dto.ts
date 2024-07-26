@@ -17,32 +17,26 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface VenueShortImportDto
  */
-export interface TourSummaryDto {
+export interface VenueShortImportDto {
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof VenueShortImportDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof VenueShortImportDto
      */
-    'abbreviation'?: string | null;
+    'url'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof VenueShortImportDto
      */
-    'logoUrl'?: string | null;
+    'countryIso'?: string | null;
 }
 

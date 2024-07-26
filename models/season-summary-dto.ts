@@ -17,32 +17,38 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface SeasonSummaryDto
  */
-export interface TourSummaryDto {
+export interface SeasonSummaryDto {
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof SeasonSummaryDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof SeasonSummaryDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof SeasonSummaryDto
      */
-    'abbreviation'?: string | null;
+    'description'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SeasonSummaryDto
+     */
+    'year'?: number;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof SeasonSummaryDto
      */
-    'logoUrl'?: string | null;
+    'thmCode'?: string | null;
 }
 

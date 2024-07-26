@@ -108,11 +108,12 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
          * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {string} [q] 
+         * @param {boolean} [useSimilarity] 
          * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPlayerEntities: async (pageSize?: number, page?: number, q?: string, eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllPlayerEntities: async (pageSize?: number, page?: number, q?: string, useSimilarity?: boolean, eventId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/PlayerEntity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -138,6 +139,10 @@ export const PlayerEntityApiAxiosParamCreator = function (configuration?: Config
 
             if (q !== undefined) {
                 localVarQueryParameter['q'] = q;
+            }
+
+            if (useSimilarity !== undefined) {
+                localVarQueryParameter['useSimilarity'] = useSimilarity;
             }
 
             if (eventId !== undefined) {
@@ -272,12 +277,13 @@ export const PlayerEntityApiFp = function(configuration?: Configuration) {
          * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {string} [q] 
+         * @param {boolean} [useSimilarity] 
          * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPlayerEntities(pageSize?: number, page?: number, q?: string, eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPlayerEntities(pageSize, page, q, eventId, options);
+        async getAllPlayerEntities(pageSize?: number, page?: number, q?: string, useSimilarity?: boolean, eventId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPlayerEntities(pageSize, page, q, useSimilarity, eventId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayerEntityApi.getAllPlayerEntities']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -340,12 +346,13 @@ export const PlayerEntityApiFactory = function (configuration?: Configuration, b
          * @param {number} [pageSize] 
          * @param {number} [page] 
          * @param {string} [q] 
+         * @param {boolean} [useSimilarity] 
          * @param {string} [eventId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPlayerEntities(pageSize?: number, page?: number, q?: string, eventId?: string, options?: any): AxiosPromise<Array<PlayerEntity>> {
-            return localVarFp.getAllPlayerEntities(pageSize, page, q, eventId, options).then((request) => request(axios, basePath));
+        getAllPlayerEntities(pageSize?: number, page?: number, q?: string, useSimilarity?: boolean, eventId?: string, options?: any): AxiosPromise<Array<PlayerEntity>> {
+            return localVarFp.getAllPlayerEntities(pageSize, page, q, useSimilarity, eventId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -403,13 +410,14 @@ export class PlayerEntityApi extends BaseAPI {
      * @param {number} [pageSize] 
      * @param {number} [page] 
      * @param {string} [q] 
+     * @param {boolean} [useSimilarity] 
      * @param {string} [eventId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PlayerEntityApi
      */
-    public getAllPlayerEntities(pageSize?: number, page?: number, q?: string, eventId?: string, options?: RawAxiosRequestConfig) {
-        return PlayerEntityApiFp(this.configuration).getAllPlayerEntities(pageSize, page, q, eventId, options).then((request) => request(this.axios, this.basePath));
+    public getAllPlayerEntities(pageSize?: number, page?: number, q?: string, useSimilarity?: boolean, eventId?: string, options?: RawAxiosRequestConfig) {
+        return PlayerEntityApiFp(this.configuration).getAllPlayerEntities(pageSize, page, q, useSimilarity, eventId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

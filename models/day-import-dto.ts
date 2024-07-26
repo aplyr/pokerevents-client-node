@@ -17,32 +17,20 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface DayImportDto
  */
-export interface TourSummaryDto {
+export interface DayImportDto {
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof DayImportDto
      */
     'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof DayImportDto
      */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'logoUrl'?: string | null;
+    'date'?: string;
 }
 

@@ -17,68 +17,50 @@
 /**
  * 
  * @export
- * @interface FestivalEntity
+ * @interface VenueSummaryDto
  */
-export interface FestivalEntity {
+export interface VenueSummaryDto {
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
-    'seasonId'?: string;
+    'name'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'venueId'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
-     */
-    'name': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
-    'fromDate'?: string;
+    'summary'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
-     */
-    'toDate'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
     'countryIso'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
-    'websiteUrl'?: string | null;
+    'city'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof FestivalEntity
+     * @memberof VenueSummaryDto
      */
-    'thmId'?: string | null;
+    'logoUrl'?: string | null;
 }
 

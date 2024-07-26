@@ -17,32 +17,20 @@
 /**
  * 
  * @export
- * @interface TourSummaryDto
+ * @interface ImageImportDto
  */
-export interface TourSummaryDto {
+export interface ImageImportDto {
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof ImageImportDto
      */
-    'id'?: string;
+    'source'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof TourSummaryDto
+     * @memberof ImageImportDto
      */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'abbreviation'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TourSummaryDto
-     */
-    'logoUrl'?: string | null;
+    'caption'?: string | null;
 }
 

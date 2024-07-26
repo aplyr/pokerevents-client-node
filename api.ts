@@ -23,6 +23,8 @@ export * from './api/embedded-api';
 export * from './api/event-statistics-api';
 export * from './api/events-api';
 export * from './api/festival-entity-api';
+export * from './api/festivals-api';
+export * from './api/helpers-api';
 export * from './api/imagekit-api';
 export * from './api/import-api';
 export * from './api/live-reportings-api';
