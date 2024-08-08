@@ -57,6 +57,7 @@ models/embedded-metadata.ts
 models/embedded-player-dto.ts
 models/event-basic-details-request.ts
 models/event-details-dto.ts
+models/event-embed-summary-dto.ts
 models/event-images-dto.ts
 models/event-import-dto.ts
 models/event-meta-dto.ts

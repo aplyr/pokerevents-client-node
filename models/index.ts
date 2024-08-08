@@ -21,6 +21,7 @@ export * from './embedded-metadata';
 export * from './embedded-player-dto';
 export * from './event-basic-details-request';
 export * from './event-details-dto';
+export * from './event-embed-summary-dto';
 export * from './event-images-dto';
 export * from './event-import-dto';
 export * from './event-meta-dto';
