@@ -24,7 +24,8 @@ export enum FestivalState {
     UpComing = 'UpComing',
     Finished = 'Finished',
     Ongoing = 'Ongoing',
-    Live = 'Live'
+    Live = 'Live',
+    Archived = 'Archived'
 }
 
 

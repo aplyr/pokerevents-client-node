@@ -34,6 +34,12 @@ export interface EventEmbedSummaryDto {
     'id': string;
     /**
      * 
+     * @type {string}
+     * @memberof EventEmbedSummaryDto
+     */
+    'name': string | null;
+    /**
+     * 
      * @type {FestivalDetailsDto}
      * @memberof EventEmbedSummaryDto
      */
