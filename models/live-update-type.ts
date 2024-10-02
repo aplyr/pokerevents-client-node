@@ -25,7 +25,8 @@ export enum LiveUpdateType {
     BlindLevel = 'BlindLevel',
     Break = 'Break',
     Info = 'Info',
-    Advertisement = 'Advertisement'
+    Advertisement = 'Advertisement',
+    PlayerUpdate = 'PlayerUpdate'
 }
 
 

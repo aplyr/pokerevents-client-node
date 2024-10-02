@@ -62,5 +62,11 @@ export interface VenueSummaryDto {
      * @memberof VenueSummaryDto
      */
     'logoUrl'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof VenueSummaryDto
+     */
+    'websiteUrl'?: string | null;
 }
 
